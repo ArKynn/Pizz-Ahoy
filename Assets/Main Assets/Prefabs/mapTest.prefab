@@ -759,9 +759,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1504606660648322986, guid: 28354db22fc1ced439955cae41974fbc, type: 3}
+      propertyPath: m_TagString
+      value: Oven
+      objectReference: {fileID: 0}
+    - target: {fileID: 1915312834080132561, guid: 28354db22fc1ced439955cae41974fbc, type: 3}
+      propertyPath: m_TagString
+      value: Oven
+      objectReference: {fileID: 0}
     - target: {fileID: 2791886396234433971, guid: 28354db22fc1ced439955cae41974fbc, type: 3}
       propertyPath: m_Name
       value: map
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901345729856639356, guid: 28354db22fc1ced439955cae41974fbc, type: 3}
+      propertyPath: m_TagString
+      value: Oven
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
