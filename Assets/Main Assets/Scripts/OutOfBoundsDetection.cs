@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class OutOfBoundsRespawn : MonoBehaviour
+public class OutOfBoundsDetection : MonoBehaviour
 {
     [SerializeField] private int OutOfBoundsLayer;
+    [SerializeField] private bool Respawn;
     [SerializeField] private GameObject objPrefab;
     private Vector3 position;
     private Quaternion rotation;
@@ -18,9 +19,11 @@ public class OutOfBoundsRespawn : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {;
         if (OutOfBoundsLayer != other.gameObject.layer || collided) return;
-        
-        collided = true;
-        Instantiate(objPrefab, position, rotation);
+        if (Respawn)
+        {
+            collided = true;
+            Instantiate(objPrefab, position, rotation);
+        } 
         Destroy(gameObject);
     }
 }
