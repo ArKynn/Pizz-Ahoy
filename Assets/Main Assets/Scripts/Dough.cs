@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Dough : Ingredient
 {
@@ -17,6 +18,7 @@ public class Dough : Ingredient
         if(!isPrepared)
         {
             isPrepared = true;
+            grabInteractable.interactionLayers = InteractionLayerMask.GetMask("Default", "SocketPizza");
             CheckModel();
 
             pizza.SetActive(true);

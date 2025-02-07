@@ -23,10 +23,10 @@ public class Pizza : MonoBehaviour
         attachedIngredients = new List<Ingredient>();
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        Ingredient ingredientToAttach = other.gameObject.GetComponent<Ingredient>();
-        if(ingredientToAttach != null)
+        Ingredient ingredientToAttach = other.gameObject.GetComponentInParent<Ingredient>();
+        if(ingredientToAttach != null && !ingredientToAttach.GetComponent<Dough>())
         {
             AddIngredient(ingredientToAttach);
         }
@@ -66,9 +66,17 @@ public class Pizza : MonoBehaviour
     private void AddIngredient(Ingredient ingredient)
     {
         attachedIngredients.Add(ingredient);
-        ingredient.CurrentModel.transform.parent = ingredientsParent;
+        ingredient.transform.parent = ingredientsParent;
+        ingredient.CurrentModel.GetComponent<Collider>().isTrigger = true;
+        ingredient.GetComponent<Rigidbody>().isKinematic = true;
+        ingredient.PutOnPizza();
         Destroy(ingredient.GetComponent<XRGrabInteractable>());
-        Destroy(ingredient.GetComponent<Rigidbody>());
+
+        if(ingredient.SnapToPizza && ingredient.IsPrepared)
+        {
+            ingredient.transform.localPosition = Vector3.zero;
+            ingredient.transform.localRotation = Quaternion.identity;
+        }
     }
 
     public List<Ingredient> GetIngredients()
