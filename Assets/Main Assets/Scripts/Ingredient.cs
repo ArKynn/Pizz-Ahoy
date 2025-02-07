@@ -81,9 +81,11 @@ public class Ingredient : MonoBehaviour
 
     private void UpdateModel(GameObject newModel)
     {   
+        Quaternion currentRotation = currentModel.transform.rotation;
         Destroy(currentModel);
 
-        currentModel = Instantiate(newModel, Vector3.zero, Quaternion.Euler(Vector3.zero), modelParent);
+        currentModel = Instantiate(newModel, Vector3.zero, currentRotation, modelParent);
+        currentModel.transform.localPosition = Vector3.zero;
     }
 
     public virtual void Prepare()
