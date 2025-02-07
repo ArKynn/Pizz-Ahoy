@@ -79,18 +79,15 @@ public class Ingredient : MonoBehaviour
 
         // Updates the model if necessary
         if(currentModel != correctModel)
-            UpdateModel(correctModel);
+            UpdateModel(correctModel.GetComponent<MeshFilter>(), correctModel.GetComponent<MeshRenderer>());
     }
 
-    private void UpdateModel(GameObject newModel)
+    private void UpdateModel(MeshFilter newMesh, MeshRenderer newMaterial)
     {   
-        Quaternion currentRotation = currentModel.transform.rotation;
-        Destroy(currentModel);
-
-        currentModel = Instantiate(newModel, Vector3.zero, currentRotation, modelParent);
-        currentModel.transform.localPosition = Vector3.zero;
-        grabInteractable.colliders.Clear();
-        grabInteractable.colliders.Add(currentModel.GetComponentInChildren<Collider>());
+        currentModel.GetComponent<MeshFilter>().mesh = newMesh.mesh;
+        currentModel.GetComponent<MeshRenderer>().material = newMaterial.material;
+        currentModel.GetComponent<MeshCollider>().sharedMesh = newMesh.mesh;
+        currentModel.transform.localScale = newMesh.transform.localScale;
     }
 
     public virtual void Prepare()
