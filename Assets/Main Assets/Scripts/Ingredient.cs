@@ -108,7 +108,7 @@ public class Ingredient : MonoBehaviour
             if(splitWhenPrepared && !hasSplit)
             {
                 hasSplit = true;
-                
+
                 for(int i = 0; i < splitAmount; i++)
                 {
                     spawnPrepared = true;
@@ -147,7 +147,7 @@ public class Ingredient : MonoBehaviour
 
     public virtual void Burn()
     {
-        if(cookState == State.Burnt)
+        if(cookState == State.Cooked)
         {
             cookState = State.Burnt;
             CheckModel();

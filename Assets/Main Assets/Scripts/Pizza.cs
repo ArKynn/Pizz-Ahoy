@@ -47,6 +47,8 @@ public class Pizza : MonoBehaviour
     {
         cookState = State.Cooked;
 
+        GetComponentInParent<Dough>().Cook();
+
         foreach(Ingredient i in attachedIngredients)
         {
             i.Cook();
@@ -56,6 +58,8 @@ public class Pizza : MonoBehaviour
     private void BecomeBurnt()
     {
         cookState = State.Burnt;
+
+        GetComponentInParent<Dough>().Burn();
 
         foreach(Ingredient i in attachedIngredients)
         {
