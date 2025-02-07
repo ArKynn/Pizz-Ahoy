@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-public class PickupRestock : MonoBehaviour
+public class IngredientSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject objPrefab;
     private XRGrabInteractable _xrGrab;
@@ -13,6 +13,8 @@ public class PickupRestock : MonoBehaviour
     private void Start()
     {
         SpawnObj();
+        GetComponent<MeshFilter>().mesh = _xrGrab.gameObject.GetComponentInChildren<MeshFilter>().mesh;
+        transform.localScale = _xrGrab.gameObject.transform.localScale;
     }
 
     private void SpawnObj(SelectEnterEventArgs args = null)
