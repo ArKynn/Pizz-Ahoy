@@ -15,12 +15,16 @@ public class Pizza : MonoBehaviour
     private State cookState;
     public State CookState {get => cookState;}
     private List<Ingredient> attachedIngredients;
+    private float snapHeight;
+    private float snapHeightIncrements;
 
 
     private void Start()
     {
         cookTimer = 0;
         attachedIngredients = new List<Ingredient>();
+        snapHeight = 0.007f;
+        snapHeightIncrements = 0.005f;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -78,8 +82,10 @@ public class Pizza : MonoBehaviour
 
         if(ingredient.SnapToPizza && ingredient.IsPrepared)
         {
-            ingredient.transform.localPosition = Vector3.zero;
+            ingredient.transform.localPosition = new Vector3(0f, snapHeight, 0f);
             ingredient.transform.localRotation = Quaternion.identity;
+
+            snapHeight += snapHeightIncrements;
         }
     }
 
