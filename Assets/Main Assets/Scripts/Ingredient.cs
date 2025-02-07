@@ -88,6 +88,8 @@ public class Ingredient : MonoBehaviour
         currentModel.GetComponent<MeshRenderer>().material = newMaterial.material;
         currentModel.GetComponent<MeshCollider>().sharedMesh = newMesh.mesh;
         currentModel.transform.localScale = newMesh.transform.localScale;
+        if(newMesh.transform.localScale.y >= 0.01f)
+            currentModel.transform.localScale =  new Vector3(newMesh.transform.localScale.x, newMesh.transform.localScale.y + 0.005f, newMesh.transform.localScale.z);
     }
 
     public virtual void Prepare()
