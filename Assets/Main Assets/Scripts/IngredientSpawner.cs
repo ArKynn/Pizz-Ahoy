@@ -13,8 +13,6 @@ public class IngredientSpawner : MonoBehaviour
     private void Start()
     {
         SpawnObj();
-        GetComponent<MeshFilter>().mesh = _xrGrab.gameObject.GetComponentInChildren<MeshFilter>().mesh;
-        transform.localScale = _xrGrab.gameObject.transform.localScale;
     }
 
     private void SpawnObj(SelectEnterEventArgs args = null)
