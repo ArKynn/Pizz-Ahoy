@@ -1170,6 +1170,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 975306915}
     m_Modifications:
+    - target: {fileID: 779205118098950986, guid: aaef86bfc332feb47ab9314c76fab4bf, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 2967234164803920252, guid: aaef86bfc332feb47ab9314c76fab4bf, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 3384343542328920922, guid: aaef86bfc332feb47ab9314c76fab4bf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f9a9567103314eb45a00b71deee999e6, type: 2}
     - target: {fileID: 3912610878123819977, guid: aaef86bfc332feb47ab9314c76fab4bf, type: 3}
       propertyPath: burntModel
       value: 
@@ -1178,6 +1190,14 @@ PrefabInstance:
       propertyPath: cookedModel
       value: 
       objectReference: {fileID: 332403101}
+    - target: {fileID: 3912610878123819977, guid: aaef86bfc332feb47ab9314c76fab4bf, type: 3}
+      propertyPath: snapToPizza
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912610878123819977, guid: aaef86bfc332feb47ab9314c76fab4bf, type: 3}
+      propertyPath: splitAmount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3912610878123819977, guid: aaef86bfc332feb47ab9314c76fab4bf, type: 3}
       propertyPath: rawOnPizzaModel
       value: 
@@ -1190,9 +1210,25 @@ PrefabInstance:
       propertyPath: rawPreparedModel
       value: 
       objectReference: {fileID: 1540627964}
+    - target: {fileID: 3912610878123819977, guid: aaef86bfc332feb47ab9314c76fab4bf, type: 3}
+      propertyPath: splitWhenPrepared
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4052706564243202909, guid: aaef86bfc332feb47ab9314c76fab4bf, type: 3}
       propertyPath: m_Name
       value: Tomato
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233764378499828837, guid: aaef86bfc332feb47ab9314c76fab4bf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233764378499828837, guid: aaef86bfc332feb47ab9314c76fab4bf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233764378499828837, guid: aaef86bfc332feb47ab9314c76fab4bf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7125888854317458813, guid: aaef86bfc332feb47ab9314c76fab4bf, type: 3}
       propertyPath: m_LocalPosition.x

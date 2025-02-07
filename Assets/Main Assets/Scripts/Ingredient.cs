@@ -4,14 +4,18 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class Ingredient : MonoBehaviour
 {
-    [SerializeField] private Transform modelParent;
-    [SerializeField] private GameObject rawRegularModel;
-    [SerializeField] private GameObject rawPreparedModel;
-    [SerializeField] private GameObject rawOnPizzaModel;
-    [SerializeField] private GameObject cookedModel;
-    [SerializeField] private GameObject burntModel;
-    [SerializeField] private bool snapToPizza;
-    [SerializeField] private CookingTool.Type preparationTool;
+    [SerializeField] protected Transform modelParent;
+    [SerializeField] protected GameObject rawRegularModel;
+    [SerializeField] protected GameObject rawPreparedModel;
+    [SerializeField] protected GameObject rawOnPizzaModel;
+    [SerializeField] protected GameObject cookedModel;
+    [SerializeField] protected GameObject burntModel;
+    [SerializeField] protected CookingTool.Type preparationTool;
+    [SerializeField] protected bool snapToPizza;
+    [SerializeField] protected bool spawnPrepared;
+    [SerializeField] protected bool splitWhenPrepared;
+    [SerializeField] [Min(1)] protected int splitAmount;
+    [SerializeField] protected int moneyValue = 10;
 
     public enum State {Raw, Cooked, Burnt}
 
@@ -35,18 +39,23 @@ public class Ingredient : MonoBehaviour
     public bool IsPrepared {get => isPrepared;}
     protected bool isOnPizza;
     public bool IsOnPizza {get => isOnPizza;}
-    private GameObject currentModel;
+    public bool SnapToPizza {get => snapToPizza;}
+    public int MoneyValue {get => moneyValue;}
+    protected GameObject currentModel;
     public GameObject CurrentModel {get => currentModel;}
     protected XRGrabInteractable grabInteractable;
+    protected bool hasSplit;
 
 
     protected virtual void Start()
     {
         cookState = State.Raw;
-        isPrepared = false;
+        isPrepared = spawnPrepared;
         isOnPizza = false;
+        hasSplit = false;
         currentModel = modelParent.GetChild(0).gameObject;
         grabInteractable = GetComponent<XRGrabInteractable>();
+
         CheckModel();
     }
 
@@ -96,8 +105,25 @@ public class Ingredient : MonoBehaviour
     {
         if(!isPrepared)
         {
-            isPrepared = true;
-            CheckModel();
+            if(splitWhenPrepared && !hasSplit)
+            {
+                hasSplit = true;
+                
+                for(int i = 0; i < splitAmount; i++)
+                {
+                    spawnPrepared = true;
+                    splitWhenPrepared = false;
+                    Instantiate(gameObject, transform.position, transform.rotation, transform.parent);
+                }
+
+                gameObject.SetActive(false);
+            }
+
+            else
+            {
+                isPrepared = true;
+                CheckModel();
+            }
         }
     }
 
