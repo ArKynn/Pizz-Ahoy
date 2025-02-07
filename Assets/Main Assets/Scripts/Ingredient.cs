@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class Ingredient : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class Ingredient : MonoBehaviour
     public bool IsOnPizza {get => isOnPizza;}
     private GameObject currentModel;
     public GameObject CurrentModel {get => currentModel;}
+    protected XRGrabInteractable grabInteractable;
 
 
     protected virtual void Start()
@@ -44,6 +46,7 @@ public class Ingredient : MonoBehaviour
         isPrepared = false;
         isOnPizza = false;
         currentModel = modelParent.GetChild(0).gameObject;
+        grabInteractable = GetComponent<XRGrabInteractable>();
         CheckModel();
     }
 
@@ -86,6 +89,8 @@ public class Ingredient : MonoBehaviour
 
         currentModel = Instantiate(newModel, Vector3.zero, currentRotation, modelParent);
         currentModel.transform.localPosition = Vector3.zero;
+        grabInteractable.colliders.Clear();
+        grabInteractable.colliders.Add(currentModel.GetComponentInChildren<Collider>());
     }
 
     public virtual void Prepare()
