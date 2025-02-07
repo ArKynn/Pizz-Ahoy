@@ -341,7 +341,6 @@ GameObject:
   - component: {fileID: 1402800294066198666}
   - component: {fileID: 7684358355288968648}
   - component: {fileID: 4859273882107948662}
-  - component: {fileID: 2219165085089377243}
   - component: {fileID: 5697683237231146616}
   m_Layer: 0
   m_Name: Paddle
@@ -358,7 +357,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7970458888082607428}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.4849297, z: -0, w: 0.87455314}
+  m_LocalRotation: {x: 0, y: -0.48493162, z: 0, w: 0.8745521}
   m_LocalPosition: {x: -0.47489187, y: -0.6856693, z: -0.52649426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -516,27 +515,6 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 1
---- !u!65 &2219165085089377243
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7970458888082607428}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
-  m_Center: {x: 0, y: 0, z: -0.42}
 --- !u!114 &5697683237231146616
 MonoBehaviour:
   m_ObjectHideFlags: 0

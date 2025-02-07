@@ -1253,7 +1253,7 @@ GameObject:
   - component: {fileID: 4761997055769461028}
   m_Layer: 0
   m_Name: Socket (2)
-  m_TagString: Untagged
+  m_TagString: Oven
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1717,7 +1717,7 @@ GameObject:
   - component: {fileID: 5638662240880111776}
   m_Layer: 0
   m_Name: Socket (1)
-  m_TagString: Untagged
+  m_TagString: Oven
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3119,7 +3119,7 @@ GameObject:
   - component: {fileID: 6596341061442629456}
   m_Layer: 0
   m_Name: Socket
-  m_TagString: Untagged
+  m_TagString: Oven
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
