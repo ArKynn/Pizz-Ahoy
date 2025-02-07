@@ -70,4 +70,9 @@ public class Pizza : MonoBehaviour
         Destroy(ingredient.GetComponent<XRGrabInteractable>());
         Destroy(ingredient.GetComponent<Rigidbody>());
     }
+
+    public List<Ingredient> GetIngredients()
+    {
+        return attachedIngredients;
+    }
 }
