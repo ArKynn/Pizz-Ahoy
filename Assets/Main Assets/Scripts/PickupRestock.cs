@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -11,16 +12,13 @@ public class PickupRestock : MonoBehaviour
 
     private void Start()
     {
-        _xrGrab = GetComponent<XRGrabInteractable>();
-        _xrGrab.firstFocusEntered.AddListener(OnPickup);
-        position = transform.position;
-        rotation = transform.rotation;
+        SpawnObj();
     }
 
-    private void OnPickup(FocusEnterEventArgs args)
+    private void SpawnObj(SelectEnterEventArgs args = null)
     {
-        Instantiate(objPrefab, position, rotation);
-        
-        _xrGrab.firstFocusEntered.RemoveListener(OnPickup);
+        var obj = Instantiate(objPrefab, transform.position, quaternion.identity);
+        _xrGrab = obj.GetComponent<XRGrabInteractable>();
+        _xrGrab.firstSelectEntered.AddListener(SpawnObj);
     }
 }

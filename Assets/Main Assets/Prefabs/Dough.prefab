@@ -182,6 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5848201443744817870}
   - component: {fileID: 8184639501306284410}
+  - component: {fileID: 1470044906852326109}
   m_Layer: 0
   m_Name: Pizza
   m_TagString: Untagged
@@ -220,6 +221,27 @@ MonoBehaviour:
   cookTime: 10
   burnTime: 10
   ingredientsParent: {fileID: 205678754448857402}
+--- !u!65 &1470044906852326109
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7317411594026123855}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3, y: 0.01, z: 0.3}
+  m_Center: {x: 0, y: 0.015, z: 0}
 --- !u!1 &8703720450052198942
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +254,7 @@ GameObject:
   - component: {fileID: 832746036926257704}
   - component: {fileID: 4825319255183590793}
   - component: {fileID: 6225278077825674221}
+  - component: {fileID: 808262674006196278}
   m_Layer: 0
   m_Name: Dough
   m_TagString: Untagged
@@ -423,5 +446,24 @@ MonoBehaviour:
   rawOnPizzaModel: {fileID: 0}
   cookedModel: {fileID: 0}
   burntModel: {fileID: 0}
-  snapToPizza: 0
   preparationTool: 1
+  snapToPizza: 0
+  spawnPrepared: 0
+  splitWhenPrepared: 0
+  splitAmount: 0
+  moneyValue: 10
+--- !u!114 &808262674006196278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8703720450052198942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5583d504bd1b51240bc79064b9c70c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OutOfBoundsLayer: 6
+  Respawn: 0
+  objPrefab: {fileID: 0}

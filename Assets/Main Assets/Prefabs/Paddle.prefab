@@ -528,4 +528,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OutOfBoundsLayer: 6
+  Respawn: 1
   objPrefab: {fileID: 7970458888082607428}

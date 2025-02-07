@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7549465745517946630}
   - component: {fileID: 6258707888458638598}
   - component: {fileID: 6682933211016575839}
+  - component: {fileID: 2351897696604169083}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -240,6 +241,21 @@ MonoBehaviour:
   splitWhenPrepared: 1
   splitAmount: 2
   moneyValue: 10
+--- !u!114 &2351897696604169083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6739856907488020032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5583d504bd1b51240bc79064b9c70c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OutOfBoundsLayer: 6
+  Respawn: 0
+  objPrefab: {fileID: 0}
 --- !u!1 &8600964517875501448
 GameObject:
   m_ObjectHideFlags: 0
