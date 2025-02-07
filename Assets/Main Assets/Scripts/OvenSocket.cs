@@ -20,12 +20,13 @@ public class OvenSocket : MonoBehaviour
         if(selectedPizza != null) 
                 selectedPizza.AddCookTime();
     }
-    
+
     private void UpdateSocketContent(SelectEnterEventArgs args)
     {
-        selectedPizza = socket.interactablesSelected[0].transform.GetComponent<Pizza>();
+        selectedPizza = socket.interactablesSelected[0].transform.GetComponentInChildren<Pizza>();
+
     }
-    
+
     private void UpdateSocketContent(SelectExitEventArgs args)
     {
         selectedPizza = socket.interactablesSelected[0].transform.GetComponent<Pizza>();
