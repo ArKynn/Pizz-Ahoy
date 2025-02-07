@@ -549,6 +549,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5583d504bd1b51240bc79064b9c70c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outOfBounds:
-    serializedVersion: 2
-    m_Bits: 64
+  OutOfBoundsLayer: 6
+  objPrefab: {fileID: 7970458888082607428}
