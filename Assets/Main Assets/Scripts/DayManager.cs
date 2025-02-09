@@ -6,16 +6,22 @@ namespace Main_Assets.Scripts
 {
     public class DayManager : MonoBehaviour
     {
-        [SerializeField] private float daysBetweenQuotas;
+        [SerializeField] private int daysBetweenQuotas;
         [SerializeField] private float dayTimeInSeconds;
         [SerializeField] private float delayBetweenNewOrders;
-        [SerializeField] private float errorPaymentReduction;
-        private OrderChecker orderChecker;
-        private OrderGenerator orderGenerator;
+        private OrderManager _orderManager;
+        private GameManager _gameManager;
         private bool _isStoreOpen;
-        private int _ordersAvailable;
-        private int _day;
-        private float DayTimer
+        private int _daysUntilQuota;
+        private bool isQuotaDay => _daysUntilQuota <= 0;
+        public int day {get; private set;}
+
+        private void Start()
+        {
+            _orderManager = FindFirstObjectByType<OrderManager>();
+            _daysUntilQuota = daysBetweenQuotas;
+        }
+        private float dayTimer
         {
             get => _dayTimer;
             set
@@ -26,24 +32,19 @@ namespace Main_Assets.Scripts
         }
         private float _dayTimer;
 
-        private float NewOrderTimer
+        private float newOrderTimer
         {
             get => _newOrderTimer;
             set
             {
                 _newOrderTimer = value;
-                if (_newOrderTimer >= delayBetweenNewOrders) GetNewOrder();
+                if (_newOrderTimer >= delayBetweenNewOrders)
+                {
+                    _orderManager.GenerateOrder();
+                }
             }
         }
         private float _newOrderTimer;
-        public int money {get; private set;}
-        public int profitSinceLastCheck {get; private set;}
-
-        private void Start()
-        {
-            orderChecker = FindFirstObjectByType<OrderChecker>();
-            orderGenerator = FindFirstObjectByType<OrderGenerator>();
-        }
 
         private void Update()
         {
@@ -53,58 +54,27 @@ namespace Main_Assets.Scripts
 
         private void UpdateTimers()
         {
-            DayTimer += Time.deltaTime;
-            NewOrderTimer += Time.deltaTime;
+            dayTimer += Time.deltaTime;
+            newOrderTimer += Time.deltaTime;
         }
 
-        private void StartNewDay()
+        public void StartNewDay()
         {
-            _day++;
-            NewOrderTimer = 0;
-            DayTimer = 0;
+            if(!_isStoreOpen) return;
+            
+            day++;
+            newOrderTimer = 0;
+            dayTimer = 0;
+            _daysUntilQuota--;
+            
+            OpenStore();
         }
         
-        public void OpenStore() => _isStoreOpen = true;
-
+        private void OpenStore() => _isStoreOpen = true;
         private void CloseStore()
         {
             _isStoreOpen = false;
-        }
-
-        private void GetNewOrder()
-        {
-            orderGenerator.GenerateOrder();
-            _ordersAvailable++;
-        }
-        
-        public void DeliverPizza(Pizza pizza, Dictionary<Ingredient, int> order)
-        {
-            var errors = orderChecker.DeliverPizza(pizza, order);
-
-            GetDeliveryPayment(errors, GetPizzaValue(order));
-
-            _ordersAvailable--;
-        }
-        
-        private int GetPizzaValue(Dictionary<Ingredient, int> order)
-        {
-            int value = 0;
-            foreach (Ingredient ingredient in order.Keys )
-            {
-                value += ingredient.MoneyValue;
-            }
-            
-            return value;
-        }
-        
-        private void GetDeliveryPayment(int errors, int pizzaValue)
-        {
-            var reduction = errors * errorPaymentReduction;
-            var profit = Mathf.RoundToInt(pizzaValue * reduction);
-            
-            money += profit;
-            profitSinceLastCheck += profit;
+            if (isQuotaDay) _gameManager.QuotaCheck();
         }
     }
-    
 }
