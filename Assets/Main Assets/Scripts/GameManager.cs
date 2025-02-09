@@ -63,6 +63,7 @@ namespace Main_Assets.Scripts
         private void GenerateNextQuota()
         {
             nextQuota = Mathf.RoundToInt(quotaBaseline * ((1 + Mathf.Pow(_quotasReached, 2) / quotaIncreaseModifier) * _rnd.NextFloat(0.75f, 1.25f) * _rnd.NextFloat(0.9f, 1.1f)));
+            _dayManager.ResetQuotaDay();
         }
 
         public void QuotaCheck()

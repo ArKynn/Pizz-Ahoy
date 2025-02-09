@@ -19,7 +19,7 @@ namespace Main_Assets.Scripts
         private void Start()
         {
             _orderManager = FindFirstObjectByType<OrderManager>();
-            _daysUntilQuota = daysBetweenQuotas;
+            ResetQuotaDay();
         }
         private float dayTimer
         {
@@ -76,5 +76,7 @@ namespace Main_Assets.Scripts
             _isStoreOpen = false;
             if (isQuotaDay) _gameManager.QuotaCheck();
         }
+        
+        public void ResetQuotaDay() => _daysUntilQuota = daysBetweenQuotas;
     }
 }
