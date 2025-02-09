@@ -15,6 +15,7 @@ public class Pizza : MonoBehaviour
     private State cookState;
     public State CookState {get => cookState;}
     private List<Ingredient> attachedIngredients;
+    public List<Ingredient> AttachedIngredients {get => attachedIngredients;}
     private float snapHeight;
     private float snapHeightIncrements;
 
@@ -71,7 +72,7 @@ public class Pizza : MonoBehaviour
         }
     }
 
-    private void AddIngredient(Ingredient ingredient)
+    public void AddIngredient(Ingredient ingredient)
     {
         attachedIngredients.Add(ingredient);
         ingredient.transform.parent = ingredientsParent;

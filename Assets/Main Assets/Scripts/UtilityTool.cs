@@ -7,12 +7,11 @@ public class UtilityTool : MonoBehaviour
 {
     protected XRGrabInteractable grabInteractable;
 
-    protected void Start()
+    protected virtual void Start()
     {
         grabInteractable.GetComponent<XRGrabInteractable>();
         grabInteractable.activated.AddListener(ActivatedAction);
         grabInteractable.deactivated.AddListener(DeactivatedAction);
-
     }
 
     protected virtual void ActivatedAction(ActivateEventArgs args)
