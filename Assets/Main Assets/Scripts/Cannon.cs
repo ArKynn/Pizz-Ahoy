@@ -11,7 +11,7 @@ public class Cannon : MonoBehaviour
     private void Start()
     {
         gameManager = FindAnyObjectByType<GameManager>();
-        socket = GetComponent<XRSocketInteractor>();
+        socket = GetComponentInChildren<XRSocketInteractor>();
 
         socket.selectEntered.AddListener(ShootPizza);
     }
