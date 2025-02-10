@@ -34,7 +34,7 @@ namespace Main_Assets.Scripts
         private int CheckOrderCorrect()
         {
             Dictionary<Ingredient, int> pizzaIngredients = new Dictionary<Ingredient, int>();
-            foreach (Ingredient ingredient in pizzaDelivered.GetIngredients())
+            foreach (Ingredient ingredient in pizzaDelivered.AttachedIngredients)
             {
                 if(!pizzaIngredients.TryAdd(ingredient, 1)) pizzaIngredients[ingredient]++;
             }
@@ -42,7 +42,7 @@ namespace Main_Assets.Scripts
             foreach (Ingredient ingredient in pizzaIngredients.Keys)
             {
                 if(!order.TryGetValue(ingredient, out int amount)) _errorsMade++;
-                if(amount != pizzaIngredients[ingredient]) _errorsMade+= math.abs(amount - order[ingredient] - 1);
+                if(amount != pizzaIngredients[ingredient]) _errorsMade+= math.abs(amount - pizzaIngredients[ingredient]);
             }
             
             if(pizzaDelivered.CookState == Pizza.State.Cooked)
@@ -63,10 +63,20 @@ namespace Main_Assets.Scripts
         public Dictionary<Ingredient, int> GenerateOrder()
         {
             _order = new Dictionary<Ingredient, int>();
+            int ingredientsNumber = _rnd.Next(1, maxIngredientNumber);
 
-            for (int i = 0; i < _rnd.Next(1, maxIngredientNumber); i++)
+            for (int i = 0; i < ingredientsNumber; i++)
             {
-                _order.Add(validIngredients[_rnd.Next(0, validIngredients.Length)], _rnd.Next(1, maxPerIngredientAmount));
+                Ingredient newIngredient = validIngredients[_rnd.Next(0, validIngredients.Length)];
+                int amount = _rnd.Next(1, maxPerIngredientAmount);
+
+                if(!_order.ContainsKey(newIngredient))
+                    _order.Add(newIngredient, amount);
+                
+                else
+                {
+                    _order[newIngredient] += amount;
+                }
             }
             
             return _order;

@@ -12,15 +12,9 @@ namespace Main_Assets.Scripts
         private OrderManager _orderManager;
         private GameManager _gameManager;
         private bool _isStoreOpen;
-        private int _daysUntilQuota;
-        private bool isQuotaDay => _daysUntilQuota <= 0;
+        private bool isQuotaDay => day % daysBetweenQuotas == 0;
         public int day {get; private set;}
 
-        private void Start()
-        {
-            _orderManager = FindFirstObjectByType<OrderManager>();
-            ResetQuotaDay();
-        }
         private float dayTimer
         {
             get => _dayTimer;
@@ -46,6 +40,10 @@ namespace Main_Assets.Scripts
         }
         private float _newOrderTimer;
 
+        private void Start()
+        {
+            _orderManager = FindFirstObjectByType<OrderManager>();
+        }
         private void Update()
         {
             if(!_isStoreOpen) return;
@@ -60,12 +58,11 @@ namespace Main_Assets.Scripts
 
         public void StartNewDay()
         {
-            if(!_isStoreOpen) return;
+            if(_isStoreOpen) return;
             
             day++;
             newOrderTimer = 0;
             dayTimer = 0;
-            _daysUntilQuota--;
             
             OpenStore();
         }
@@ -76,7 +73,5 @@ namespace Main_Assets.Scripts
             _isStoreOpen = false;
             if (isQuotaDay) _gameManager.QuotaCheck();
         }
-        
-        public void ResetQuotaDay() => _daysUntilQuota = daysBetweenQuotas;
     }
 }

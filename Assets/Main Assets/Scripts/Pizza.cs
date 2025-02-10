@@ -89,9 +89,4 @@ public class Pizza : MonoBehaviour
             snapHeight += snapHeightIncrements;
         }
     }
-
-    public List<Ingredient> GetIngredients()
-    {
-        return attachedIngredients;
-    }
 }
