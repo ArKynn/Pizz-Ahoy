@@ -13,7 +13,7 @@ public class SauceBottle : UtilityTool
     {
         base.Start();
 
-        sauceParticles = GetComponent<ParticleSystem>();
+        sauceParticles = GetComponentInChildren<ParticleSystem>();
         sauceParticles.Stop();
     }
 
