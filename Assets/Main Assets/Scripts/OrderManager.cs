@@ -9,6 +9,8 @@ namespace Main_Assets.Scripts
         [SerializeField] private Ingredient[] validIngredients;
         [SerializeField] private int maxIngredientNumber;
         [SerializeField] private int maxPerIngredientAmount;
+        [SerializeField] private GameObject orderPrefab;
+        [SerializeField] private Transform orderSpawnPos;
         
         private System.Random _rnd;
         private Dictionary<Ingredient, int> _order;
@@ -60,7 +62,7 @@ namespace Main_Assets.Scripts
             return _errorsMade;
         }
         
-        public Dictionary<Ingredient, int> GenerateOrder()
+        public void GenerateOrder()
         {
             _order = new Dictionary<Ingredient, int>();
             int ingredientsNumber = _rnd.Next(1, maxIngredientNumber);
@@ -79,7 +81,7 @@ namespace Main_Assets.Scripts
                 }
             }
             
-            return _order;
+            Instantiate(orderPrefab, orderSpawnPos.position, Quaternion.identity);
         }
     }
 }

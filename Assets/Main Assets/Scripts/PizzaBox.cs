@@ -53,9 +53,10 @@ public class PizzaBox : MonoBehaviour
 
     private void CheckCanCloseBox()
     {
-        if(!_hasPizza && _hasOrder) return;
-        
-        _animator.SetTrigger("Close");
-        bottomBox.GetComponent<XRGrabInteractable>().interactionLayers = InteractionLayerMask.GetMask("SocketBox");
+        if(_hasPizza && _hasOrder)
+        {
+            _animator.SetTrigger("Close");
+            bottomBox.GetComponent<XRGrabInteractable>().interactionLayers = InteractionLayerMask.GetMask("SocketBox");
+        }
     }
 }

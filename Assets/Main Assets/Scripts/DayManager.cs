@@ -35,6 +35,7 @@ namespace Main_Assets.Scripts
                 if (_newOrderTimer >= delayBetweenNewOrders)
                 {
                     _orderManager.GenerateOrder();
+                    _newOrderTimer = 0;
                 }
             }
         }
