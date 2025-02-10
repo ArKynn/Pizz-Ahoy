@@ -14,7 +14,7 @@ public class PizzaBox : MonoBehaviour
     private bool _hasOrder;
     
     public Pizza pizza {get; private set;}
-    public Pizza order {get; private set;}
+    public Order order {get; private set;}
     
     
     private void Start()
@@ -48,7 +48,7 @@ public class PizzaBox : MonoBehaviour
     private void CheckHasOrder()
     {
         _hasOrder = topBox.hasSelection && 
-                    (order = topBox.interactablesSelected[0].transform.gameObject.GetComponent<Pizza>()) != null;
+                    (order = topBox.interactablesSelected[0].transform.gameObject.GetComponent<Order>()) != null;
     }
 
     private void CheckCanCloseBox()
