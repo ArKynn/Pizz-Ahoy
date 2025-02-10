@@ -129,7 +129,7 @@ MonoBehaviour:
   modelParent: {fileID: 7424851929065450847}
   rawRegularModel: {fileID: 0}
   rawPreparedModel: {fileID: 0}
-  rawOnPizzaModel: {fileID: 0}
+  rawOnPizzaModel: {fileID: 919132149155446097, guid: 405ed90fac297874bb7d54ac58d76876, type: 3}
   cookedModel: {fileID: 0}
   burntModel: {fileID: 0}
   preparationTool: 2
