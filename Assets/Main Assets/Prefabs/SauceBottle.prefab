@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 6969629602152676400}
   - component: {fileID: 6526301699537177037}
   - component: {fileID: 5308051025733923761}
+  - component: {fileID: 3759347238191092419}
   m_Layer: 0
   m_Name: SauceBottle
   m_TagString: Untagged
@@ -230,6 +231,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saucePrefab: {fileID: 6501379539974483939, guid: afc4422a65341f04694482bbf54a3075, type: 3}
+--- !u!114 &3759347238191092419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5353205761595352866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5583d504bd1b51240bc79064b9c70c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OutOfBoundsLayer: 6
+  Respawn: 1
+  objPrefab: {fileID: 5353205761595352866}
 --- !u!1 &7328429089194416260
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +273,7 @@ Transform:
   m_GameObject: {fileID: 7328429089194416260}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.705, z: 0}
+  m_LocalPosition: {x: 0, y: 0.7642, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -399,7 +415,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -453,7 +469,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.9716981, g: 0.050418302, b: 0.050418302, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -517,7 +533,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -841,7 +857,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -895,13 +911,13 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 25
+    angle: 5
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0}
+    m_Rotation: {x: -90, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -981,7 +997,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.0001
       mode: 0
       spread: 0
       speed:
@@ -1100,7 +1116,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 100
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -3849,9 +3865,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -3914,7 +3930,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3967,7 +3983,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.01
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5010,7 +5026,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5115,13 +5131,44 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9088799791201251806, guid: 87e935960d5767f4280217dcb6959c85, type: 3}
+    - {fileID: 8911010298675303727, guid: 87e935960d5767f4280217dcb6959c85, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2641803198792526429, guid: 87e935960d5767f4280217dcb6959c85, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 435040352078563238}
   m_SourcePrefab: {fileID: 100100000, guid: 87e935960d5767f4280217dcb6959c85, type: 3}
 --- !u!4 &4902623593403061235 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3450393586929283303, guid: 87e935960d5767f4280217dcb6959c85, type: 3}
   m_PrefabInstance: {fileID: 7776551630006756116}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5711213598828480841 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2641803198792526429, guid: 87e935960d5767f4280217dcb6959c85, type: 3}
+  m_PrefabInstance: {fileID: 7776551630006756116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &435040352078563238
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5711213598828480841}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.20752259, y: 0.7047341, z: 0.2075226}
+  m_Center: {x: -0.0000019520521, y: 0.35236704, z: -0.0001581721}
