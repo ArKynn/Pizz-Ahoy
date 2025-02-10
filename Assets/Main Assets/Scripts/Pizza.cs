@@ -18,6 +18,8 @@ public class Pizza : MonoBehaviour
     public List<Ingredient> AttachedIngredients {get => attachedIngredients;}
     private float snapHeight;
     private float snapHeightIncrements;
+    private bool hasSauce;
+    public bool HasSauce {get => hasSauce; set => hasSauce = value;}
 
 
     private void Start()
@@ -76,7 +78,7 @@ public class Pizza : MonoBehaviour
     {
         attachedIngredients.Add(ingredient);
         ingredient.transform.parent = ingredientsParent;
-        ingredient.CurrentModel.GetComponent<Collider>().isTrigger = true;
+        ingredient.CurrentModel.GetComponentInChildren<Collider>().isTrigger = true;
         ingredient.GetComponent<Rigidbody>().isKinematic = true;
         ingredient.PutOnPizza();
         Destroy(ingredient.GetComponent<XRGrabInteractable>());

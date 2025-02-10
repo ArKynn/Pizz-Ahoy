@@ -41,8 +41,7 @@ public class Ingredient : MonoBehaviour
     public bool IsOnPizza {get => isOnPizza;}
     public bool SnapToPizza {get => snapToPizza;}
     public int MoneyValue {get => moneyValue;}
-    protected GameObject currentModel;
-    public GameObject CurrentModel {get => currentModel;}
+    public GameObject CurrentModel {get => modelParent.GetChild(0).gameObject;}
     protected XRGrabInteractable grabInteractable;
     protected bool hasSplit;
 
@@ -53,7 +52,6 @@ public class Ingredient : MonoBehaviour
         isPrepared = spawnPrepared;
         isOnPizza = false;
         hasSplit = false;
-        currentModel = modelParent.GetChild(0).gameObject;
         grabInteractable = GetComponent<XRGrabInteractable>();
 
         CheckModel();
@@ -81,24 +79,25 @@ public class Ingredient : MonoBehaviour
                 break;
 
             default:
-                correctModel = currentModel;
+                correctModel = CurrentModel;
                 break;
 
         }
 
         // Updates the model if necessary
-        if(currentModel != correctModel)
+        if(CurrentModel != correctModel)
             UpdateModel(correctModel.GetComponent<MeshFilter>(), correctModel.GetComponent<MeshRenderer>());
     }
 
     private void UpdateModel(MeshFilter newMesh, MeshRenderer newMaterial)
     {   
-        currentModel.GetComponent<MeshFilter>().mesh = newMesh.mesh;
-        currentModel.GetComponent<MeshRenderer>().material = newMaterial.material;
-        currentModel.GetComponent<MeshCollider>().sharedMesh = newMesh.mesh;
-        currentModel.transform.localScale = newMesh.transform.localScale;
+        CurrentModel.GetComponent<MeshFilter>().mesh = newMesh.mesh;
+        CurrentModel.GetComponent<MeshRenderer>().material = newMaterial.material;
+        CurrentModel.GetComponent<MeshCollider>().sharedMesh = newMesh.mesh;
+        CurrentModel.transform.localScale = newMesh.transform.localScale;
+        CurrentModel.transform.rotation = Quaternion.identity;
         if(newMesh.transform.localScale.y >= 0.01f)
-            currentModel.transform.localScale =  new Vector3(newMesh.transform.localScale.x, newMesh.transform.localScale.y + 0.005f, newMesh.transform.localScale.z);
+            CurrentModel.transform.localScale =  new Vector3(newMesh.transform.localScale.x, newMesh.transform.localScale.y + 0.005f, newMesh.transform.localScale.z);
     }
 
     public virtual void Prepare()
