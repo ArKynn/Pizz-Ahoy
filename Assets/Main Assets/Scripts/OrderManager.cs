@@ -11,9 +11,11 @@ namespace Main_Assets.Scripts
         [SerializeField] private int maxPerIngredientAmount;
         [SerializeField] private GameObject orderPrefab;
         [SerializeField] private Transform orderSpawnPos;
+        [SerializeField] private bool allowRepeatedIngredients;
         
         private System.Random _rnd;
         private Dictionary<Ingredient, int> _order;
+        private List<Ingredient> _availableIngredients;
         
         public Pizza pizzaDelivered { get; private set; }
         public Dictionary<Ingredient, int> order { get; private set; }
@@ -64,13 +66,14 @@ namespace Main_Assets.Scripts
         
         public void GenerateOrder(int orderNumber)
         {
+            _availableIngredients = new List<Ingredient>(validIngredients);
             _order = new Dictionary<Ingredient, int>();
             int ingredientsNumber = _rnd.Next(1, maxIngredientNumber);
 
             for (int i = 0; i < ingredientsNumber; i++)
             {
-                Ingredient newIngredient = validIngredients[_rnd.Next(0, validIngredients.Length)];
-                int amount = _rnd.Next(1, maxPerIngredientAmount);
+                Ingredient newIngredient = _availableIngredients[_rnd.Next(0, _availableIngredients.Count)];
+                int amount = newIngredient.SnapToPizza ? 1 : _rnd.Next(1, maxPerIngredientAmount);
 
                 if(!_order.ContainsKey(newIngredient))
                     _order.Add(newIngredient, amount);
@@ -79,6 +82,7 @@ namespace Main_Assets.Scripts
                 {
                     _order[newIngredient] += amount;
                 }
+                if(newIngredient.SnapToPizza || !allowRepeatedIngredients) _availableIngredients.Remove(newIngredient);
             }
             
             var newOrder = Instantiate(orderPrefab, orderSpawnPos.position, Quaternion.identity);
