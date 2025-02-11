@@ -16,6 +16,7 @@ public class Ingredient : MonoBehaviour
     [SerializeField] protected bool splitWhenPrepared;
     [SerializeField] [Min(1)] protected int splitAmount;
     [SerializeField] protected int moneyValue = 10;
+    [SerializeField] protected Sprite sprite;
 
     public enum State {Raw, Cooked, Burnt}
 
@@ -41,6 +42,7 @@ public class Ingredient : MonoBehaviour
     public bool IsOnPizza {get => isOnPizza;}
     public bool SnapToPizza {get => snapToPizza;}
     public int MoneyValue {get => moneyValue;}
+    public Sprite Sprite {get => sprite;}
     public GameObject CurrentModel {get => modelParent.GetChild(0).gameObject;}
     protected XRGrabInteractable grabInteractable;
     protected bool hasSplit;
