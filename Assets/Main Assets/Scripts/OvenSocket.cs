@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 [RequireComponent(typeof(XRSocketInteractor))]
 public class OvenSocket : MonoBehaviour
 {
+    [SerializeField] private AudioClip ambienceSound;
+    [SerializeField] private AudioMixerGroup audioMixerGroup;
     private XRSocketInteractor socket;
     private Pizza selectedPizza;
 
@@ -13,6 +16,9 @@ public class OvenSocket : MonoBehaviour
         socket = GetComponent<XRSocketInteractor>();
         socket.selectEntered.AddListener(UpdateSocketContent);
         socket.selectExited.AddListener(UpdateSocketContent);
+        AudioManager.CreateLocalAudioSource(gameObject, audioMixerGroup,
+            ambienceSound, maxDistance:5f, loop:true, playOnAwake:true);
+        
     }
 
     private void Update()

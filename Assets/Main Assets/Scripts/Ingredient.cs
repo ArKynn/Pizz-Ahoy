@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class Ingredient : MonoBehaviour
@@ -11,6 +12,8 @@ public class Ingredient : MonoBehaviour
     [SerializeField] protected GameObject cookedModel;
     [SerializeField] protected GameObject burntModel;
     [SerializeField] protected CookingTool.Type preparationTool;
+    [SerializeField] protected AudioClip preparedSound;
+    [SerializeField] protected AudioMixerGroup audioMixerGroup;
     [SerializeField] protected bool snapToPizza;
     [SerializeField] protected bool spawnPrepared;
     [SerializeField] protected bool splitWhenPrepared;
@@ -46,6 +49,7 @@ public class Ingredient : MonoBehaviour
     public GameObject CurrentModel {get => modelParent.GetChild(0).gameObject;}
     protected XRGrabInteractable grabInteractable;
     protected bool hasSplit;
+    protected AudioSource audioSource;
 
 
     protected virtual void Start()
@@ -55,6 +59,7 @@ public class Ingredient : MonoBehaviour
         isOnPizza = false;
         hasSplit = false;
         grabInteractable = GetComponent<XRGrabInteractable>();
+        audioSource = AudioManager.CreateLocalAudioSource(gameObject, audioMixerGroup);
 
         CheckModel();
     }
@@ -157,14 +162,12 @@ public class Ingredient : MonoBehaviour
 
     protected virtual void OnCollisionEnter(Collision collision)
     {
-        if(!isPrepared)
-        {
-            CookingTool tool = collision.gameObject.GetComponent<CookingTool>();
+        CookingTool tool = collision.gameObject.GetComponent<CookingTool>();
 
-            if(tool != null && tool.ToolType == preparationTool)
-            {
-                Prepare();
-            }
+        if(tool != null && tool.ToolType == preparationTool)
+        {
+            AudioManager.PlayLocalSound(audioSource, preparedSound);
+            Prepare();
         }
     }
 }
