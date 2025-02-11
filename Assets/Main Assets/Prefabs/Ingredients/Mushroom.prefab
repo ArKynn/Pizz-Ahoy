@@ -228,6 +228,8 @@ MonoBehaviour:
   cookedModel: {fileID: 0}
   burntModel: {fileID: 0}
   preparationTool: 0
+  preparedSound: {fileID: 8300000, guid: 086ad04ad792fd148abd57c5f7efb403, type: 3}
+  audioMixerGroup: {fileID: -7234052748922116534, guid: 0ba265da8273b664ab256ed6797ff478, type: 2}
   snapToPizza: 0
   spawnPrepared: 0
   splitWhenPrepared: 1
