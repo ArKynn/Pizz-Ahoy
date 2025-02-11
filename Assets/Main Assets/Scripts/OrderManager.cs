@@ -62,7 +62,7 @@ namespace Main_Assets.Scripts
             return _errorsMade;
         }
         
-        public void GenerateOrder()
+        public void GenerateOrder(int orderNumber)
         {
             _order = new Dictionary<Ingredient, int>();
             int ingredientsNumber = _rnd.Next(1, maxIngredientNumber);
@@ -81,7 +81,8 @@ namespace Main_Assets.Scripts
                 }
             }
             
-            Instantiate(orderPrefab, orderSpawnPos.position, Quaternion.identity);
+            var newOrder = Instantiate(orderPrefab, orderSpawnPos.position, Quaternion.identity);
+            newOrder.GetComponent<Order>().SetOrder(_order, orderNumber);
         }
     }
 }

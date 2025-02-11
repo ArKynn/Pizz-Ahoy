@@ -14,6 +14,7 @@ namespace Main_Assets.Scripts
         private bool _isStoreOpen;
         private bool isQuotaDay => day % daysBetweenQuotas == 0;
         public int day {get; private set;}
+        private int _ordersGenerated;
 
         private float dayTimer
         {
@@ -34,7 +35,7 @@ namespace Main_Assets.Scripts
                 _newOrderTimer = value;
                 if (_newOrderTimer >= delayBetweenNewOrders)
                 {
-                    _orderManager.GenerateOrder();
+                    _orderManager.GenerateOrder(_ordersGenerated++);
                     _newOrderTimer = 0;
                 }
             }
@@ -64,6 +65,7 @@ namespace Main_Assets.Scripts
             day++;
             newOrderTimer = 0;
             dayTimer = 0;
+            _ordersGenerated = 0;
             
             OpenStore();
         }
