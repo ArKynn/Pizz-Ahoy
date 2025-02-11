@@ -35,7 +35,8 @@ namespace Main_Assets.Scripts
                 _newOrderTimer = value;
                 if (_newOrderTimer >= delayBetweenNewOrders)
                 {
-                    _orderManager.GenerateOrder(_ordersGenerated++);
+                    _ordersGenerated++;
+                    _orderManager.GenerateOrder(_ordersGenerated);
                     _newOrderTimer = 0;
                 }
             }
@@ -62,6 +63,8 @@ namespace Main_Assets.Scripts
         {
             if(_isStoreOpen) return;
             
+            print("Opening store");
+            
             day++;
             newOrderTimer = 0;
             dayTimer = 0;
@@ -73,6 +76,8 @@ namespace Main_Assets.Scripts
         private void OpenStore() => _isStoreOpen = true;
         private void CloseStore()
         {
+            print("Closing store");
+            
             _isStoreOpen = false;
             if (isQuotaDay) _gameManager.QuotaCheck();
         }
