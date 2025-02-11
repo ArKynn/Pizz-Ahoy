@@ -13,14 +13,9 @@ namespace Main_Assets.Scripts
         public Dictionary<Ingredient, int> order { get; private set; } = new Dictionary<Ingredient, int>();
         private bool _orderSet;
 
-
-        private void Start()
-        {
-            _grid = GetComponentInChildren<GridLayoutGroup>();
-        }
-
         public void SetOrder(Dictionary<Ingredient, int> newOrder, int orderNumber)
         {
+            _grid = GetComponentInChildren<GridLayoutGroup>();
             if(_orderSet) return;
             
             order = newOrder;
@@ -36,11 +31,12 @@ namespace Main_Assets.Scripts
             foreach (KeyValuePair<Ingredient, int> pair in order)
             {
                 GameObject orderIngredient = Instantiate(orderIngredientPrefab, _grid.transform);
-                TMP_Text orderIngredientText = orderIngredient.GetComponent<TMP_Text>();
-                SpriteRenderer orderIngredientSprite = orderIngredient.GetComponent<SpriteRenderer>();
+                TMP_Text orderIngredientText = orderIngredient.GetComponentInChildren<TMP_Text>();
+                SpriteRenderer orderIngredientSprite = orderIngredient.GetComponentInChildren<SpriteRenderer>();
                 
                 orderIngredientText.text = orderIngredientText.text.Replace("%", pair.Value.ToString());
-                orderIngredientSprite.sprite = pair.Key.Sprite;
+                if(pair.Key.Sprite != null) orderIngredientSprite.sprite = pair.Key.Sprite;
+                else print($"{pair.Key} sprite is missing");
             }
         }
     }
