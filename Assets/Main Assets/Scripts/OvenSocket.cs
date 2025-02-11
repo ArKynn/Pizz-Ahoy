@@ -17,7 +17,7 @@ public class OvenSocket : MonoBehaviour
         socket.selectEntered.AddListener(UpdateSocketContent);
         socket.selectExited.AddListener(UpdateSocketContent);
         AudioManager.CreateLocalAudioSource(gameObject, audioMixerGroup,
-            ambienceSound, maxDistance:5f, loop:true, playOnAwake:true);
+            ambienceSound, volume:0.5f, maxDistance:3f, loop:true, playOnAwake:true);
         
     }
 

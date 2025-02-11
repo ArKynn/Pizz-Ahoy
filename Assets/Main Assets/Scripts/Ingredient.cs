@@ -99,7 +99,7 @@ public class Ingredient : MonoBehaviour
     private void UpdateModel(MeshFilter newMesh, MeshRenderer newMaterial)
     {   
         CurrentModel.GetComponent<MeshFilter>().mesh = newMesh.mesh;
-        CurrentModel.GetComponent<MeshRenderer>().material = newMaterial.material;
+        CurrentModel.GetComponent<MeshRenderer>().materials = newMaterial.materials;
         CurrentModel.GetComponent<MeshCollider>().sharedMesh = newMesh.mesh;
         CurrentModel.transform.localScale = newMesh.transform.localScale;
         CurrentModel.transform.rotation = Quaternion.identity;
