@@ -4,15 +4,21 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField] private AudioMixerGroup bgmusicMixer;
+    [SerializeField] private AudioSource musicAudioSource;
+    [SerializeField] private AudioClip bgMusic;
     [SerializeField] private AudioClip wavesAmbience;
+    [SerializeField] private AudioMixerGroup wavesMixer;
     [SerializeField] private List<AudioSource> wavesAmbienceAudioSources;
     [SerializeField] private AudioClip seagullsAmbience;
+    [SerializeField] private AudioMixerGroup seagullsMixer;
     [SerializeField] private List<AudioSource> seagullAmbienceAudioSources;
 
     private void Start()
     {
-        SetupAmbienceAudioSources(wavesAmbienceAudioSources, wavesAmbience);
-        SetupAmbienceAudioSources(seagullAmbienceAudioSources, seagullsAmbience);
+        SetupAmbienceAudioSources(new List<AudioSource>(){musicAudioSource}, bgMusic, 0.15f, spatial3D:false);
+        SetupAmbienceAudioSources(wavesAmbienceAudioSources, wavesAmbience, 0.2f, 0.5f, 25f);
+        //SetupAmbienceAudioSources(seagullAmbienceAudioSources, seagullsAmbience, 0.8f, 0.5f, 20f);
     }
 
 
@@ -50,10 +56,20 @@ public class AudioManager : MonoBehaviour
         return newAudioSource;
     }
 
-    private void SetupAmbienceAudioSources(List<AudioSource> audioSources, AudioClip clip)
+    private void SetupAmbienceAudioSources(List<AudioSource> audioSources, AudioClip clip,
+        float volume = 1.0f, float minDistance = 1f, float maxDistance = 15f, bool spatial3D = true)
     {
         foreach(AudioSource a in audioSources)
         {
+            if(spatial3D)
+                a.spatialBlend = 1.0f;
+            else
+                a.spatialBlend = 0.0f;
+
+            a.rolloffMode = AudioRolloffMode.Linear;
+            a.volume = volume;
+            a.minDistance = minDistance;
+            a.maxDistance = maxDistance;
             a.clip = clip;
             a.loop = true;
             a.Play();
