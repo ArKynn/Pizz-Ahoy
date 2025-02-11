@@ -466,10 +466,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modelParent: {fileID: 6258538827471298412}
   rawRegularModel: {fileID: 0}
-  rawPreparedModel: {fileID: 0}
-  rawOnPizzaModel: {fileID: 0}
-  cookedModel: {fileID: 0}
-  burntModel: {fileID: 0}
+  rawPreparedModel: {fileID: 1474082079124612259, guid: 0819761be76970e4a91656cc497fccde, type: 3}
+  rawOnPizzaModel: {fileID: 1474082079124612259, guid: 0819761be76970e4a91656cc497fccde, type: 3}
+  cookedModel: {fileID: 2754848761295957042, guid: fcecd1283ac6e56459196917e480e1ab, type: 3}
+  burntModel: {fileID: 3840791565710349215, guid: 9f8f1322f152aca40a9704dc1c63a776, type: 3}
   preparationTool: 1
   preparedSound: {fileID: 8300000, guid: 35b676d6870745e4d94fce98f285376a, type: 3}
   audioMixerGroup: {fileID: -7234052748922116534, guid: 0ba265da8273b664ab256ed6797ff478, type: 2}
@@ -478,6 +478,7 @@ MonoBehaviour:
   splitWhenPrepared: 0
   splitAmount: 0
   moneyValue: 10
+  sprite: {fileID: 0}
 --- !u!114 &808262674006196278
 MonoBehaviour:
   m_ObjectHideFlags: 0

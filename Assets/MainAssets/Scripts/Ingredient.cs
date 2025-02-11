@@ -98,6 +98,18 @@ public class Ingredient : MonoBehaviour
         // Updates the model if necessary
         if(CurrentModel != correctModel)
             UpdateModel(correctModel);
+            //UpdateModel(correctModel.GetComponent<MeshFilter>(), correctModel.GetComponent<MeshRenderer>());
+    }
+
+    private void UpdateModel(MeshFilter newMesh, MeshRenderer newMaterial)
+    {   
+        CurrentModel.GetComponent<MeshFilter>().mesh = newMesh.mesh;
+        CurrentModel.GetComponent<MeshRenderer>().materials = newMaterial.materials;
+        CurrentModel.GetComponent<MeshCollider>().sharedMesh = newMesh.mesh;
+        CurrentModel.transform.localScale = newMesh.transform.localScale;
+        CurrentModel.transform.rotation = Quaternion.identity;
+        if(newMesh.transform.localScale.y >= 0.01f)
+            CurrentModel.transform.localScale =  new Vector3(newMesh.transform.localScale.x, newMesh.transform.localScale.y + 0.005f, newMesh.transform.localScale.z);
     }
 
     private void UpdateModel(GameObject model)
