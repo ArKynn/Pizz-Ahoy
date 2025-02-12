@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 5541978064178587892}
   - component: {fileID: 4228738179494850829}
   - component: {fileID: 2953472162533560875}
+  - component: {fileID: 6914297526455677786}
   m_Layer: 7
   m_Name: Order
   m_TagString: Untagged
@@ -374,6 +375,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderIngredientPrefab: {fileID: 3260108373860633494, guid: 33e8b0c6e29e7fb4cb0c648019ccb4eb, type: 3}
+--- !u!114 &6914297526455677786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4868326264386418766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5583d504bd1b51240bc79064b9c70c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OutOfBoundsLayer: 6
+  Respawn: 1
+  objPrefab: {fileID: 4868326264386418766}
 --- !u!1 &6649749391963951370
 GameObject:
   m_ObjectHideFlags: 0

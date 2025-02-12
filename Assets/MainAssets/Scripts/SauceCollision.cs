@@ -30,7 +30,7 @@ public class SauceCollision : MonoBehaviour
             if(pizza != null && !pizza.HasSauce)
             {
                 Instantiate(saucePrefab, pizza.transform.position, Quaternion.identity);
-                spawnBufferTimer = 0.1f;
+                spawnBufferTimer = 0.3f;
             }
         }
 
