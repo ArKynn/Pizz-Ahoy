@@ -19,6 +19,7 @@ public class PizzaBox : MonoBehaviour
     
     private void Start()
     {
+        _animator = GetComponent<Animator>();
         bottomBox.selectEntered.AddListener(UpdateRequirements);
         bottomBox.selectExited.AddListener(UpdateRequirements);
         topBox.selectEntered.AddListener(UpdateRequirements);
@@ -42,13 +43,15 @@ public class PizzaBox : MonoBehaviour
     private void CheckHasPizza()
     {
         _hasPizza = bottomBox.hasSelection &&
-                    (pizza = bottomBox.interactablesSelected[0].transform.gameObject.GetComponent<Pizza>()) != null;
+                    (pizza = bottomBox.interactablesSelected[0].transform.gameObject.GetComponentInChildren<Pizza>()) != null;
+        if(pizza != null) pizza.GetComponent<Collider>().isTrigger = true;
     }
 
     private void CheckHasOrder()
     {
         _hasOrder = topBox.hasSelection && 
                     (order = topBox.interactablesSelected[0].transform.gameObject.GetComponent<Order>()) != null;
+        if(order != null) order.GetComponentInChildren<Collider>().isTrigger = true;
     }
 
     private void CheckCanCloseBox()
@@ -56,7 +59,7 @@ public class PizzaBox : MonoBehaviour
         if(_hasPizza && _hasOrder)
         {
             _animator.SetTrigger("Close");
-            bottomBox.GetComponent<XRGrabInteractable>().interactionLayers = InteractionLayerMask.GetMask("SocketBox");
+            GetComponentInChildren<XRGrabInteractable>().interactionLayers = InteractionLayerMask.GetMask("SocketBox");
         }
     }
 }

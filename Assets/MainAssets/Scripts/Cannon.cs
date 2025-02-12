@@ -20,7 +20,7 @@ public class Cannon : MonoBehaviour
     {
         if(socket.hasSelection)
         {
-            PizzaBox pizzaBox = socket.interactablesSelected[0].transform.GetComponentInChildren<PizzaBox>();
+            PizzaBox pizzaBox = socket.interactablesSelected[0].transform.GetComponentInParent<PizzaBox>();
 
             if(pizzaBox != null)
             {
