@@ -199,7 +199,7 @@ Transform:
   m_GameObject: {fileID: 7317411594026123855}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.0025, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -240,7 +240,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3, y: 0.01, z: 0.3}
+  m_Size: {x: 0.3, y: 0.015, z: 0.3}
   m_Center: {x: 0, y: 0.015, z: 0}
 --- !u!1 &8703720450052198942
 GameObject:
@@ -470,6 +470,7 @@ MonoBehaviour:
   rawOnPizzaModel: {fileID: 1474082079124612259, guid: 0819761be76970e4a91656cc497fccde, type: 3}
   cookedModel: {fileID: 2754848761295957042, guid: fcecd1283ac6e56459196917e480e1ab, type: 3}
   burntModel: {fileID: 3840791565710349215, guid: 9f8f1322f152aca40a9704dc1c63a776, type: 3}
+  leftoverModel: {fileID: 0}
   preparationTool: 1
   preparedSound: {fileID: 8300000, guid: 35b676d6870745e4d94fce98f285376a, type: 3}
   audioMixerGroup: {fileID: -7234052748922116534, guid: 0ba265da8273b664ab256ed6797ff478, type: 2}
