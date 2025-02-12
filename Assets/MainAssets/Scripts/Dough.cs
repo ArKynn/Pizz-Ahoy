@@ -10,7 +10,8 @@ public class Dough : Ingredient
         base.Start();
 
         pizza = GetComponentInChildren<Pizza>().gameObject;
-        pizza.SetActive(false);
+        if(!spawnPrepared)
+            pizza.SetActive(false);
     }
 
     public override void Prepare()

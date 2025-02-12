@@ -25,6 +25,7 @@ namespace Main_Assets.Scripts
             _rnd = new Unity.Mathematics.Random( 0x6E624EB7u);
             _dayManager = FindFirstObjectByType<DayManager>();
             _orderManager = FindFirstObjectByType<OrderManager>();
+            _quotasReached = 0;
             if(debugStartDay) StartGame();
         }
 

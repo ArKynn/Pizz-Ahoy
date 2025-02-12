@@ -46,6 +46,7 @@ namespace Main_Assets.Scripts
         private void Start()
         {
             _orderManager = FindFirstObjectByType<OrderManager>();
+            _gameManager = FindFirstObjectByType<GameManager>();
         }
         private void Update()
         {

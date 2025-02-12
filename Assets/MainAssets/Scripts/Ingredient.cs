@@ -58,11 +58,12 @@ public class Ingredient : MonoBehaviour
     protected virtual void Start()
     {
         cookState = State.Raw;
-        isPrepared = spawnPrepared;
-        isOnPizza = false;
-        hasSplit = false;
         grabInteractable = GetComponent<XRGrabInteractable>();
         audioSource = AudioManager.CreateLocalAudioSource(gameObject, audioMixerGroup);
+        if(spawnPrepared) Prepare();
+        else isPrepared = false;
+        isOnPizza = false;
+        hasSplit = false;
 
         CheckModel();
     }
@@ -93,8 +94,6 @@ public class Ingredient : MonoBehaviour
                 break;
 
         }
-
-        Debug.Log($"correct model for {name}: {correctModel}");
 
         // Updates the model if necessary
         if(CurrentModel != correctModel)
@@ -205,8 +204,6 @@ public class Ingredient : MonoBehaviour
         CookingTool tool = collision.gameObject.GetComponent<CookingTool>();
         if(tool == null) tool = collision.gameObject.GetComponentInParent<CookingTool>();
         if(tool == null) tool = collision.gameObject.GetComponentInChildren<CookingTool>();
-
-        Debug.Log(tool + " was detected as a tool to prepare " + name);
 
         if(tool != null && tool.ToolType == preparationTool)
         {

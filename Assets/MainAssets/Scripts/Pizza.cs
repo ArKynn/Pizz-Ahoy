@@ -24,12 +24,10 @@ public class Pizza : MonoBehaviour
         {
             if(i.GetComponent<Sauce>() != null)
             {
-                Debug.Log("has sauce!");
                 return true;
             }
         }
 
-        Debug.Log("Doesn't have sauce!");
         return false;
     }}
 
@@ -105,10 +103,6 @@ public class Pizza : MonoBehaviour
 
                 snapHeight += snapHeightIncrements;
             }
-        }
-        else
-        {
-            Destroy(ingredient.gameObject);
         }
     }
 }
