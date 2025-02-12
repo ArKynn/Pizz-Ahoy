@@ -58,8 +58,11 @@ public class PizzaBox : MonoBehaviour
     {
         if(_hasPizza && _hasOrder)
         {
+            pizza.transform.parent.GetComponentInChildren<Collider>().isTrigger = true;
+            order.GetComponentInChildren<Collider>().isTrigger = true;
+            
             _animator.SetTrigger("Close");
-            GetComponentInChildren<XRGrabInteractable>().interactionLayers = InteractionLayerMask.GetMask("SocketBox");
+            GetComponent<XRGrabInteractable>().interactionLayers += InteractionLayerMask.GetMask("SocketBox");
         }
     }
 }

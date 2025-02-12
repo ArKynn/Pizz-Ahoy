@@ -20,14 +20,16 @@ public class Cannon : MonoBehaviour
     {
         if(socket.hasSelection)
         {
-            PizzaBox pizzaBox = socket.interactablesSelected[0].transform.GetComponentInParent<PizzaBox>();
-
+            PizzaBox pizzaBox = socket.interactablesSelected[0].transform.GetComponent<PizzaBox>();
+            
             if(pizzaBox != null)
             {
                 gameManager.DeliverPizza(pizzaBox.pizza, pizzaBox.order.order);
-                socket.interactablesSelected[0] = null;
-                Destroy(pizzaBox);
+                socket.enabled = false;
+                Destroy(pizzaBox.gameObject);
             }
         }
+        
+        socket.enabled = true;
     }
 }
