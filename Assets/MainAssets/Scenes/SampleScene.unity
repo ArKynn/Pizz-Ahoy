@@ -1124,7 +1124,7 @@ Transform:
   m_GameObject: {fileID: 229513468}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 4.68, y: 3.33, z: 2.09}
+  m_LocalPosition: {x: 4.68, y: 3.386, z: 2.09}
   m_LocalScale: {x: 2.13671, y: 0.12642999, z: 1.47735}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1146,7 +1146,7 @@ MonoBehaviour:
   m_Colliders:
   - {fileID: 229513471}
   m_InteractionLayers:
-    m_Bits: 2147483648
+    m_Bits: 2147483649
   m_DistanceCalculationMode: 1
   m_SelectMode: 1
   m_FocusMode: 1
@@ -1882,7 +1882,7 @@ Transform:
   m_GameObject: {fileID: 394208890}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7108473, z: -0, w: 0.7033464}
-  m_LocalPosition: {x: 9.466, y: 3.33, z: 3.686}
+  m_LocalPosition: {x: 9.466, y: 3.386, z: 3.686}
   m_LocalScale: {x: 2.13671, y: 0.12642999, z: 1.47735}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1904,7 +1904,7 @@ MonoBehaviour:
   m_Colliders:
   - {fileID: 394208893}
   m_InteractionLayers:
-    m_Bits: 2147483648
+    m_Bits: 2147483649
   m_DistanceCalculationMode: 1
   m_SelectMode: 1
   m_FocusMode: 1
@@ -8289,7 +8289,7 @@ Transform:
   m_GameObject: {fileID: 1556514039}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.27, y: 3.33, z: 1.92}
+  m_LocalPosition: {x: -0.27, y: 3.386, z: 1.92}
   m_LocalScale: {x: 2.13671, y: 0.12642999, z: 1.47735}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8311,7 +8311,7 @@ MonoBehaviour:
   m_Colliders:
   - {fileID: 1556514042}
   m_InteractionLayers:
-    m_Bits: 2147483648
+    m_Bits: 2147483649
   m_DistanceCalculationMode: 1
   m_SelectMode: 1
   m_FocusMode: 1
@@ -8891,7 +8891,7 @@ Transform:
   m_GameObject: {fileID: 1675046716}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.020131206, z: -0, w: 0.99979734}
-  m_LocalPosition: {x: 1.8345757, y: 3.33, z: 5.4008207}
+  m_LocalPosition: {x: 1.8345757, y: 3.386, z: 5.4008207}
   m_LocalScale: {x: 2.13671, y: 0.12642999, z: 1.47735}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8913,7 +8913,7 @@ MonoBehaviour:
   m_Colliders:
   - {fileID: 1675046719}
   m_InteractionLayers:
-    m_Bits: 2147483648
+    m_Bits: 2147483649
   m_DistanceCalculationMode: 1
   m_SelectMode: 1
   m_FocusMode: 1
