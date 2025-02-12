@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -91,20 +93,43 @@ public class Ingredient : MonoBehaviour
 
         }
 
+        Debug.Log($"correct model for {name}: {correctModel}");
+
         // Updates the model if necessary
         if(CurrentModel != correctModel)
-            UpdateModel(correctModel.GetComponent<MeshFilter>(), correctModel.GetComponent<MeshRenderer>());
+            UpdateModel(correctModel);
     }
 
-    private void UpdateModel(MeshFilter newMesh, MeshRenderer newMaterial)
-    {   
-        CurrentModel.GetComponent<MeshFilter>().mesh = newMesh.mesh;
-        CurrentModel.GetComponent<MeshRenderer>().materials = newMaterial.materials;
-        CurrentModel.GetComponent<MeshCollider>().sharedMesh = newMesh.mesh;
-        CurrentModel.transform.localScale = newMesh.transform.localScale;
-        CurrentModel.transform.rotation = Quaternion.identity;
-        if(newMesh.transform.localScale.y >= 0.01f)
-            CurrentModel.transform.localScale =  new Vector3(newMesh.transform.localScale.x, newMesh.transform.localScale.y + 0.005f, newMesh.transform.localScale.z);
+    private void UpdateModel(GameObject model)
+    {
+        Destroy(CurrentModel);
+
+        GameObject newModel = Instantiate(model);
+        List<Collider> newColliders = newModel.GetComponentsInChildren<Collider>().ToList();
+
+        newModel.transform.parent = modelParent;
+        newModel.transform.localPosition = Vector3.zero;
+        newModel.transform.localRotation = Quaternion.identity;
+
+        if(grabInteractable != null)
+        {
+            for(int i = 0; i < newColliders.Count; i++)
+            {
+                try
+                {
+                    grabInteractable.colliders[i] = newColliders[i];
+                }
+                catch
+                {
+                    grabInteractable.colliders.Add(newColliders[i]);
+                }
+            }
+
+            // Resets the interactable to register the new colliders
+            // (an unity dev said this was the only solution)
+            grabInteractable.enabled = false;
+            grabInteractable.enabled = true;
+        }
     }
 
     public virtual void Prepare()
@@ -163,6 +188,10 @@ public class Ingredient : MonoBehaviour
     protected virtual void OnCollisionEnter(Collision collision)
     {
         CookingTool tool = collision.gameObject.GetComponent<CookingTool>();
+        if(tool == null) tool = collision.gameObject.GetComponentInParent<CookingTool>();
+        if(tool == null) tool = collision.gameObject.GetComponentInChildren<CookingTool>();
+
+        Debug.Log(tool + " was detected as a tool to prepare " + name);
 
         if(tool != null && tool.ToolType == preparationTool)
         {
