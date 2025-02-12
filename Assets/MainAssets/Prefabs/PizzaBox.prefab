@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 6169503942730981957}
   - component: {fileID: 1297102132616476912}
   - component: {fileID: 7301516594143784591}
+  - component: {fileID: 6727987577362010789}
   m_Layer: 0
   m_Name: PizzaBox
   m_TagString: Untagged
@@ -531,6 +532,21 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 1
+--- !u!114 &6727987577362010789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6359505775293412621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5583d504bd1b51240bc79064b9c70c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OutOfBoundsLayer: 6
+  Respawn: 0
+  objPrefab: {fileID: 0}
 --- !u!1 &8596822716726875232
 GameObject:
   m_ObjectHideFlags: 0

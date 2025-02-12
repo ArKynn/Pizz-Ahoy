@@ -26,6 +26,8 @@ public class Cannon : MonoBehaviour
             {
                 gameManager.DeliverPizza(pizzaBox.pizza, pizzaBox.order.order);
                 socket.enabled = false;
+                Destroy(pizzaBox.order);
+                Destroy(pizzaBox.pizza);
                 Destroy(pizzaBox.gameObject);
             }
         }
