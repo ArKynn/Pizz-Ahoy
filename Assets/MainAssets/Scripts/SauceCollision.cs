@@ -6,24 +6,31 @@ public class SauceCollision : MonoBehaviour
     [SerializeField] private GameObject saucePrefab;
 
     private ParticleSystem sauceParticles;
+    private float spawnBufferTimer;
 
     private void Start()
     {
         sauceParticles = GetComponent<ParticleSystem>();
+        spawnBufferTimer = 0f;
+    }
+
+    private void Update()
+    {
+        if(spawnBufferTimer > 0) spawnBufferTimer -= Time.deltaTime;
     }
 
     protected void OnParticleCollision(GameObject other)
     {
         Dough dough = other.GetComponentInParent<Dough>();
         
-        if (dough != null)
+        if (dough != null && spawnBufferTimer <= 0)
         {
             Pizza pizza = dough.GetComponentInChildren<Pizza>();
 
-            if(!pizza.HasSauce)
+            if(pizza != null && !pizza.HasSauce)
             {
                 Instantiate(saucePrefab, pizza.transform.position, Quaternion.identity);
-                pizza.HasSauce = true;
+                spawnBufferTimer = 0.1f;
             }
         }
 

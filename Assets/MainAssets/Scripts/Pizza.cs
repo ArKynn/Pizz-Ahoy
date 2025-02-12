@@ -18,15 +18,27 @@ public class Pizza : MonoBehaviour
     public List<Ingredient> AttachedIngredients {get => attachedIngredients;}
     private float snapHeight;
     private float snapHeightIncrements;
-    private bool hasSauce;
-    public bool HasSauce {get => hasSauce; set => hasSauce = value;}
+    public bool HasSauce {get
+    {
+        foreach(Ingredient i in attachedIngredients)
+        {
+            if(i.GetComponent<Sauce>() != null)
+            {
+                Debug.Log("has sauce!");
+                return true;
+            }
+        }
+
+        Debug.Log("Doesn't have sauce!");
+        return false;
+    }}
 
 
     private void Start()
     {
         cookTimer = 0;
         attachedIngredients = new List<Ingredient>();
-        snapHeight = 0.007f;
+        snapHeight = transform.localPosition.y + 0.003f;
         snapHeightIncrements = 0.005f;
     }
 
@@ -76,19 +88,27 @@ public class Pizza : MonoBehaviour
 
     public void AddIngredient(Ingredient ingredient)
     {
-        attachedIngredients.Add(ingredient);
-        ingredient.transform.parent = ingredientsParent;
-        ingredient.CurrentModel.GetComponentInChildren<Collider>().isTrigger = true;
-        ingredient.GetComponent<Rigidbody>().isKinematic = true;
-        ingredient.PutOnPizza();
-        Destroy(ingredient.GetComponent<XRGrabInteractable>());
-
-        if(ingredient.SnapToPizza && ingredient.IsPrepared)
+        if(ingredient.GetComponent<Sauce>() == null || !HasSauce)
         {
-            ingredient.transform.localPosition = new Vector3(0f, snapHeight, 0f);
-            ingredient.transform.localRotation = Quaternion.identity;
+            attachedIngredients.Add(ingredient);
+            ingredient.transform.parent = ingredientsParent;
+            foreach(Collider c in ingredient.CurrentModel.GetComponentsInChildren<Collider>())
+                c.isTrigger = true;
+            ingredient.PutOnPizza();
+            Destroy(ingredient.GetComponent<XRGrabInteractable>());
+            Destroy(ingredient.GetComponent<Rigidbody>());
 
-            snapHeight += snapHeightIncrements;
+            if(ingredient.SnapToPizza && ingredient.IsPrepared)
+            {
+                ingredient.transform.localPosition = new Vector3(0f, snapHeight, 0f);
+                ingredient.transform.localRotation = Quaternion.identity;
+
+                snapHeight += snapHeightIncrements;
+            }
+        }
+        else
+        {
+            Destroy(ingredient.gameObject);
         }
     }
 }

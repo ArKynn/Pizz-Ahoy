@@ -13,6 +13,7 @@ public class Ingredient : MonoBehaviour
     [SerializeField] protected GameObject rawOnPizzaModel;
     [SerializeField] protected GameObject cookedModel;
     [SerializeField] protected GameObject burntModel;
+    [SerializeField] protected GameObject leftoverModel;
     [SerializeField] protected CookingTool.Type preparationTool;
     [SerializeField] protected AudioClip preparedSound;
     [SerializeField] protected AudioMixerGroup audioMixerGroup;
@@ -97,10 +98,10 @@ public class Ingredient : MonoBehaviour
 
         // Updates the model if necessary
         if(CurrentModel != correctModel)
-            UpdateModel(correctModel);
+            UpdateModel(correctModel, isPrepared && (!snapToPizza || !isOnPizza));
     }
 
-    private void UpdateModel(GameObject model)
+    private void UpdateModel(GameObject model, bool resetRigidBody = false)
     {
         Destroy(CurrentModel);
 
@@ -110,6 +111,14 @@ public class Ingredient : MonoBehaviour
         newModel.transform.parent = modelParent;
         newModel.transform.localPosition = Vector3.zero;
         newModel.transform.localRotation = Quaternion.identity;
+
+        Rigidbody rb = newModel.GetComponentInParent<Rigidbody>();
+
+        if(rb != null && resetRigidBody)
+        {
+            rb.isKinematic = false;
+            rb.useGravity = true;
+        }
 
         if(grabInteractable != null)
         {
@@ -135,7 +144,13 @@ public class Ingredient : MonoBehaviour
     public virtual void Prepare()
     {
         if(!isPrepared)
-        {
+        {   
+            if(leftoverModel != null)
+            {
+                Instantiate(leftoverModel, transform.position, transform.rotation, transform.parent);
+                leftoverModel = null;
+            }
+
             if(splitWhenPrepared && !hasSplit)
             {
                 hasSplit = true;

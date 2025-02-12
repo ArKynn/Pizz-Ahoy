@@ -264,11 +264,12 @@ MonoBehaviour:
   - {fileID: 6682933211016575839, guid: 27af4195f61e1ef43b911d8a955aacc5, type: 3}
   - {fileID: 4775486120578406185, guid: 9c7b866f21e0a1542b3d63fd31142160, type: 3}
   - {fileID: 3912610878123819977, guid: aaef86bfc332feb47ab9314c76fab4bf, type: 3}
-  - {fileID: 8135688590118764, guid: afc4422a65341f04694482bbf54a3075, type: 3}
+  - {fileID: 0}
   maxIngredientNumber: 5
   maxPerIngredientAmount: 5
   orderPrefab: {fileID: 4868326264386418766, guid: 19752e6c910d4824181a89898a643582, type: 3}
   orderSpawnPos: {fileID: 8026397988470254960}
+  allowRepeatedIngredients: 0
 --- !u!114 &5859364411369082674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -985,6 +986,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f639258c8441544e80073ecbad62afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ambienceSound: {fileID: 0}
+  audioMixerGroup: {fileID: 0}
 --- !u!114 &9178163210963357461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -997,6 +1000,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f639258c8441544e80073ecbad62afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ambienceSound: {fileID: 0}
+  audioMixerGroup: {fileID: 0}
 --- !u!4 &7046586326428208761 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1114784188935059647, guid: 28354db22fc1ced439955cae41974fbc, type: 3}
@@ -1019,6 +1024,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f639258c8441544e80073ecbad62afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ambienceSound: {fileID: 0}
+  audioMixerGroup: {fileID: 0}
 --- !u!114 &2532891477919686259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1031,6 +1038,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f639258c8441544e80073ecbad62afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ambienceSound: {fileID: 0}
+  audioMixerGroup: {fileID: 0}
 --- !u!1 &8814509244737106284 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1504606660648322986, guid: 28354db22fc1ced439955cae41974fbc, type: 3}
@@ -1048,6 +1057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f639258c8441544e80073ecbad62afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ambienceSound: {fileID: 0}
+  audioMixerGroup: {fileID: 0}
 --- !u!114 &1785974285151651085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1060,3 +1071,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f639258c8441544e80073ecbad62afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ambienceSound: {fileID: 0}
+  audioMixerGroup: {fileID: 0}
