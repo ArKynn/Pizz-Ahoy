@@ -465,7 +465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelParent: {fileID: 6258538827471298412}
-  rawRegularModel: {fileID: 5651680721925683488, guid: 7d606188374539c4cb8ce7311d9e7e1c, type: 3}
+  rawRegularModel: {fileID: 5739428560372700403, guid: 01e2cd1633f834441b81c203955711e1, type: 3}
   rawPreparedModel: {fileID: 1474082079124612259, guid: 0819761be76970e4a91656cc497fccde, type: 3}
   rawOnPizzaModel: {fileID: 1474082079124612259, guid: 0819761be76970e4a91656cc497fccde, type: 3}
   cookedModel: {fileID: 2754848761295957042, guid: fcecd1283ac6e56459196917e480e1ab, type: 3}

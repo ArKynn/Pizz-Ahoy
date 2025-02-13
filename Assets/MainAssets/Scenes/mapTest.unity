@@ -376,7 +376,7 @@ PrefabInstance:
     - target: {fileID: 6225278077825674221, guid: 8dd58243598283440a999ef17238374f, type: 3}
       propertyPath: rawRegularModel
       value: 
-      objectReference: {fileID: 1470957326}
+      objectReference: {fileID: 5739428560372700403, guid: 01e2cd1633f834441b81c203955711e1, type: 3}
     - target: {fileID: 8703720450052198942, guid: 8dd58243598283440a999ef17238374f, type: 3}
       propertyPath: m_Name
       value: Dough (1)
@@ -926,7 +926,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3242761374626707266, guid: 8dd58243598283440a999ef17238374f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.26
+      value: -2.477
       objectReference: {fileID: 0}
     - target: {fileID: 3242761374626707266, guid: 8dd58243598283440a999ef17238374f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -964,6 +964,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6225278077825674221, guid: 8dd58243598283440a999ef17238374f, type: 3}
+      propertyPath: spawnPrepared
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6225278077825674221, guid: 8dd58243598283440a999ef17238374f, type: 3}
+      propertyPath: rawRegularModel
+      value: 
+      objectReference: {fileID: 5739428560372700403, guid: 01e2cd1633f834441b81c203955711e1, type: 3}
     - target: {fileID: 8703720450052198942, guid: 8dd58243598283440a999ef17238374f, type: 3}
       propertyPath: m_Name
       value: Dough (2)
@@ -4507,7 +4515,7 @@ PrefabInstance:
     - target: {fileID: 7183225671274389891, guid: 0aafe94f9dfbdf842b15d64cc9e43866, type: 3}
       propertyPath: rawRegularModel
       value: 
-      objectReference: {fileID: 1470957326}
+      objectReference: {fileID: 5739428560372700403, guid: 01e2cd1633f834441b81c203955711e1, type: 3}
     - target: {fileID: 7183225671274389891, guid: 0aafe94f9dfbdf842b15d64cc9e43866, type: 3}
       propertyPath: rawPreparedModel
       value: 
