@@ -57,7 +57,6 @@ public class TutorialBook : UtilityTool
     private void EnableUI(SelectEnterEventArgs args)
     {
         interactors.Add((XRBaseInteractor)args.interactorObject);
-        Debug.Log($"book grabbed ({interactors.Count} interactors)");
 
         if(interactors.Count > 0)
             uiManager.StartCoroutine(uiManager.FadeInUI(tutorialUI));
@@ -66,7 +65,6 @@ public class TutorialBook : UtilityTool
     private void DisableUI(SelectExitEventArgs args)
     {
         interactors.Remove((XRBaseInteractor)args.interactorObject);
-        Debug.Log($"book released ({interactors.Count} interactors)");
 
         if(interactors.Count <= 0)
         {

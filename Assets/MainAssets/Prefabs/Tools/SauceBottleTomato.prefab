@@ -5148,6 +5148,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ketchup Plastic Bottle
       objectReference: {fileID: 0}
+    - target: {fileID: 2641803198792526429, guid: 87e935960d5767f4280217dcb6959c85, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 3450393586929283303, guid: 87e935960d5767f4280217dcb6959c85, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.6
