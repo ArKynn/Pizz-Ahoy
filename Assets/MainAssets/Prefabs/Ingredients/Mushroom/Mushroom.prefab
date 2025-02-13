@@ -227,6 +227,7 @@ MonoBehaviour:
   rawOnPizzaModel: {fileID: 0}
   cookedModel: {fileID: 0}
   burntModel: {fileID: 0}
+  leftoverModel: {fileID: 0}
   preparationTool: 0
   preparedSound: {fileID: 8300000, guid: 086ad04ad792fd148abd57c5f7efb403, type: 3}
   audioMixerGroup: {fileID: -7234052748922116534, guid: 0ba265da8273b664ab256ed6797ff478, type: 2}
@@ -235,6 +236,7 @@ MonoBehaviour:
   splitWhenPrepared: 1
   splitAmount: 4
   moneyValue: 10
+  sprite: {fileID: 21300000, guid: 0de543cd8db75774ea184fac982e37cc, type: 3}
 --- !u!114 &1968141771643028934
 MonoBehaviour:
   m_ObjectHideFlags: 0

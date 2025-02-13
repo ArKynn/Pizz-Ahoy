@@ -226,6 +226,7 @@ MonoBehaviour:
   rawOnPizzaModel: {fileID: 4308785329295643786, guid: bd5bc2e3c85950248b5c59c034d7a179, type: 3}
   cookedModel: {fileID: 4005734438919307299, guid: 94df556cc872e584aa37d80901d958f8, type: 3}
   burntModel: {fileID: 7635605500050942181, guid: 7f5d00e8cfeba894ab848eb0427b8eb9, type: 3}
+  leftoverModel: {fileID: 0}
   preparationTool: 0
   preparedSound: {fileID: 8300000, guid: 50c60a4047fb9924a9fbf2b57e48dd85, type: 3}
   audioMixerGroup: {fileID: -7234052748922116534, guid: 0ba265da8273b664ab256ed6797ff478, type: 2}
@@ -234,7 +235,7 @@ MonoBehaviour:
   splitWhenPrepared: 1
   splitAmount: 4
   moneyValue: 10
-  sprite: {fileID: 21300000, guid: 018390427de08054293b1b1eecd6d704, type: 3}
+  sprite: {fileID: 21300000, guid: ff9ce8f1851c34142a29f694a1145862, type: 3}
 --- !u!1 &5076633754951882619
 GameObject:
   m_ObjectHideFlags: 0
