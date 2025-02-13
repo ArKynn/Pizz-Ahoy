@@ -236,7 +236,7 @@ MonoBehaviour:
   splitWhenPrepared: 1
   splitAmount: 3
   moneyValue: 10
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 0de543cd8db75774ea184fac982e37cc, type: 3}
 --- !u!114 &1968141771643028934
 MonoBehaviour:
   m_ObjectHideFlags: 0

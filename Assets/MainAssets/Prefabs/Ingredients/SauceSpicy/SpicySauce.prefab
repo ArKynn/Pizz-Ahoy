@@ -88,7 +88,7 @@ MonoBehaviour:
   splitWhenPrepared: 0
   splitAmount: 1
   moneyValue: 20
-  sprite: {fileID: 21300000, guid: 728818c33e44cae468febc56dd166cac, type: 3}
+  sprite: {fileID: 21300000, guid: 8c94726fe1ca1ed468ea61945a14d58a, type: 3}
 --- !u!1 &7404074570888214054
 GameObject:
   m_ObjectHideFlags: 0
