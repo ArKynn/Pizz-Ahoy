@@ -44,7 +44,7 @@ namespace Main_Assets.Scripts
             GetDeliveryPayment(errors, GetPizzaValue(order));
         }
         
-        private int GetPizzaValue(Dictionary<Ingredient, int> order)
+        public int GetPizzaValue(Dictionary<Ingredient, int> order)
         {
             int value = 0;
             foreach (Ingredient ingredient in order.Keys )
