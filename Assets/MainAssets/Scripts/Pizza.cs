@@ -42,28 +42,6 @@ public class Pizza : MonoBehaviour
         snapHeight = sauceHeight + snapHeightIncrements;
     }
 
-    /*private void OnTriggerEnter(Collider other)
-    {
-        Ingredient ingredientToAttach = other.gameObject.GetComponentInParent<Ingredient>();
-
-        bool isMoving = false;
-        if(ingredientToAttach != null)
-            foreach(Rigidbody rb in ingredientToAttach.GetComponentsInChildren<Rigidbody>())
-            {
-                if(!ingredientToAttach.GetComponent<Dough>()) Debug.Log($"Ingredient {ingredientToAttach.name}'s rigidbody has velocity of {rb.linearVelocity.magnitude}");
-                if(rb.linearVelocity.magnitude > 0.05f)
-                {
-                    isMoving = true;
-                    break;
-                }
-            }
-
-        if(ingredientToAttach != null && !ingredientToAttach.GetComponent<Dough>() && !ingredientToAttach.IsOnPizza && !isMoving)
-        {
-            AddIngredient(ingredientToAttach);
-        }
-    }*/
-
     private void OnTriggerStay(Collider other)
     {
         Ingredient ingredientToAttach = other.gameObject.GetComponentInParent<Ingredient>();
@@ -135,7 +113,7 @@ public class Pizza : MonoBehaviour
 
             if(ingredient.SnapToPizza && ingredient.IsPrepared)
             {
-                if(ingredient.GetComponent<Sauce>() == null)
+                if(ingredient.GetComponent<Sauce>() != null)
                     ingredient.transform.localPosition = new Vector3(0f, sauceHeight, 0f);
 
                 else
