@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  minHandGrabs: 2
 --- !u!114 &5357551041733779639
 MonoBehaviour:
   m_ObjectHideFlags: 0
