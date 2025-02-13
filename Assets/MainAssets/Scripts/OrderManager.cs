@@ -20,7 +20,7 @@ namespace Main_Assets.Scripts
         private Dictionary<Ingredient, int> _order;
         private List<Ingredient> _availableIngredients;
         private GameManager _gameManager;
-        private Object lockObject = new Object();
+        private Vector3 _spawnPosition;
         
         public Pizza pizzaDelivered { get; private set; }
         public Dictionary<Ingredient, int> order { get; private set; }
@@ -31,6 +31,7 @@ namespace Main_Assets.Scripts
         {
             _rnd = new System.Random();
             _gameManager = FindFirstObjectByType<GameManager>();
+            _spawnPosition = Vector3.zero + orderSpawnPos.position;
         }
 
         public int DeliverPizza(Pizza pizza, Dictionary<Ingredient, int> deliveredOrder)
@@ -77,15 +78,18 @@ namespace Main_Assets.Scripts
             else
             {
                 _errorsMade += 10;
-            }
+            }   
         }
 
         public async void GenerateOrder(int orderNumber)
         {
-            await Task.Run(() => TaskGenerateOrder(orderNumber));
+            await Task.Run(TaskGenerateOrder);
+            
+            var newOrder = Instantiate(orderPrefab, _spawnPosition, Quaternion.identity);
+            newOrder.GetComponent<Order>().SetOrder(_order, orderNumber, _gameManager.GetPizzaValue(_order));
         }
         
-        private void TaskGenerateOrder(int orderNumber)
+        private void TaskGenerateOrder()
         {
             _availableIngredients = new List<Ingredient>(validIngredients);
             _order = new Dictionary<Ingredient, int>();
@@ -103,9 +107,6 @@ namespace Main_Assets.Scripts
 
                 if(newIngredient.SnapToPizza || !allowRepeatedIngredients) _availableIngredients.Remove(newIngredient);
             }
-            
-            var newOrder = Instantiate(orderPrefab, orderSpawnPos.position, Quaternion.identity);
-            newOrder.GetComponent<Order>().SetOrder(_order, orderNumber, _gameManager.GetPizzaValue(_order));
         }
     }
 }
