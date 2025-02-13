@@ -11,6 +11,7 @@ namespace Main_Assets.Scripts
         [SerializeField] private float delayBetweenNewOrders;
         private OrderManager _orderManager;
         private GameManager _gameManager;
+        private UIManager _uiManager;
         private bool _isStoreOpen;
         private bool isQuotaDay => day % daysBetweenQuotas == 0;
         public int day {get; private set;}
@@ -47,6 +48,7 @@ namespace Main_Assets.Scripts
         {
             _orderManager = FindFirstObjectByType<OrderManager>();
             _gameManager = FindFirstObjectByType<GameManager>();
+            _uiManager = FindFirstObjectByType<UIManager>();
         }
         private void Update()
         {
@@ -73,13 +75,18 @@ namespace Main_Assets.Scripts
             
             OpenStore();
         }
-        
-        private void OpenStore() => _isStoreOpen = true;
+
+        private void OpenStore()
+        {
+            _isStoreOpen = true;
+            //_uiManager.StartCoroutine(FadeOutUI());
+        }
         private void CloseStore()
         {
             print("Closing store");
             
             _isStoreOpen = false;
+            //_uiManager.StartCoroutine(FadeInUI());
             if (isQuotaDay) _gameManager.QuotaCheck();
         }
     }
