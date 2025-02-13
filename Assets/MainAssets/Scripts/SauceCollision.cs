@@ -12,6 +12,7 @@ public class SauceCollision : MonoBehaviour
     {
         sauceParticles = GetComponent<ParticleSystem>();
         spawnBufferTimer = 0f;
+        StopParticles();
     }
 
     private void Update()
