@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using Unity.Mathematics;
+using UnityEditor.VersionControl;
 using UnityEngine;
+using Task = System.Threading.Tasks.Task;
 
 namespace Main_Assets.Scripts
 {
@@ -17,6 +20,7 @@ namespace Main_Assets.Scripts
         private Dictionary<Ingredient, int> _order;
         private List<Ingredient> _availableIngredients;
         private GameManager _gameManager;
+        private Object lockObject = new Object();
         
         public Pizza pizzaDelivered { get; private set; }
         public Dictionary<Ingredient, int> order { get; private set; }
@@ -33,11 +37,18 @@ namespace Main_Assets.Scripts
         {
             pizzaDelivered = pizza;
             order = deliveredOrder;
+            _errorsMade = 0;
 
-            return CheckOrderCorrect();
+            CheckOrderCorrect();
+            return _errorsMade;
         }
 
-        private int CheckOrderCorrect()
+        private async void CheckOrderCorrect()
+        {
+            await Task.Run(TaskCheckOrderCorrect);
+        }
+
+        private void TaskCheckOrderCorrect()
         {
             Dictionary<Ingredient, int> pizzaIngredients = new Dictionary<Ingredient, int>();
             foreach (Ingredient ingredient in pizzaDelivered.AttachedIngredients)
@@ -67,11 +78,14 @@ namespace Main_Assets.Scripts
             {
                 _errorsMade += 10;
             }
-            
-            return _errorsMade;
+        }
+
+        public async void GenerateOrder(int orderNumber)
+        {
+            await Task.Run(() => TaskGenerateOrder(orderNumber));
         }
         
-        public void GenerateOrder(int orderNumber)
+        private void TaskGenerateOrder(int orderNumber)
         {
             _availableIngredients = new List<Ingredient>(validIngredients);
             _order = new Dictionary<Ingredient, int>();
