@@ -16,6 +16,7 @@ namespace Main_Assets.Scripts
         private System.Random _rnd;
         private Dictionary<Ingredient, int> _order;
         private List<Ingredient> _availableIngredients;
+        private GameManager _gameManager;
         
         public Pizza pizzaDelivered { get; private set; }
         public Dictionary<Ingredient, int> order { get; private set; }
@@ -25,6 +26,7 @@ namespace Main_Assets.Scripts
         private void Start()
         {
             _rnd = new System.Random();
+            _gameManager = FindFirstObjectByType<GameManager>();
         }
 
         public int DeliverPizza(Pizza pizza, Dictionary<Ingredient, int> deliveredOrder)
@@ -45,8 +47,13 @@ namespace Main_Assets.Scripts
 
             foreach (Ingredient ingredient in pizzaIngredients.Keys)
             {
-                if(!order.TryGetValue(ingredient, out int amount)) _errorsMade++;
-                if(amount != pizzaIngredients[ingredient]) _errorsMade+= math.abs(amount - pizzaIngredients[ingredient]);
+                if (!order.TryGetValue(ingredient, out int amount))
+                {
+                    _errorsMade++;
+                    continue;
+                }
+                
+                if(amount != pizzaIngredients[ingredient]) _errorsMade += math.abs(amount - pizzaIngredients[ingredient]);
             }
             
             if(pizzaDelivered.CookState == Pizza.State.Cooked)
@@ -58,7 +65,7 @@ namespace Main_Assets.Scripts
             }
             else
             {
-                _errorsMade++;
+                _errorsMade += 10;
             }
             
             return _errorsMade;
@@ -75,18 +82,16 @@ namespace Main_Assets.Scripts
                 Ingredient newIngredient = _availableIngredients[_rnd.Next(0, _availableIngredients.Count)];
                 int amount = newIngredient.SnapToPizza ? 1 : _rnd.Next(1, maxPerIngredientAmount);
 
-                if(!_order.ContainsKey(newIngredient))
-                    _order.Add(newIngredient, amount);
-                
-                else
+                if(!_order.TryAdd(newIngredient, amount))
                 {
                     _order[newIngredient] += amount;
                 }
+
                 if(newIngredient.SnapToPizza || !allowRepeatedIngredients) _availableIngredients.Remove(newIngredient);
             }
             
             var newOrder = Instantiate(orderPrefab, orderSpawnPos.position, Quaternion.identity);
-            newOrder.GetComponent<Order>().SetOrder(_order, orderNumber);
+            newOrder.GetComponent<Order>().SetOrder(_order, orderNumber, _gameManager.GetPizzaValue(_order));
         }
     }
 }
