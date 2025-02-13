@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
     public void LoadScene(int scene)
     {
         StopAllCoroutines();
-        StartCoroutine(StartSceneTransition(Mathf.Min(scene, 0)));
+        StartCoroutine(StartSceneTransition(Mathf.Max(scene, 0)));
     }
 
     public void QuitGame()
