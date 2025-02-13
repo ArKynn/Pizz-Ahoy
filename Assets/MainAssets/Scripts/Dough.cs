@@ -22,7 +22,9 @@ public class Dough : Ingredient
             grabInteractable.interactionLayers = InteractionLayerMask.GetMask("Default", "SocketPizza");
             CheckModel();
 
-            pizza.SetActive(true);
+            if(pizza == null) Start();
+            if(pizza != null)
+                pizza.SetActive(true);
         }
     }
 }

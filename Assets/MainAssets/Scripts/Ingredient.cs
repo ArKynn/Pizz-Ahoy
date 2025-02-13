@@ -97,12 +97,26 @@ public class Ingredient : MonoBehaviour
 
         // Updates the model if necessary
         if(CurrentModel != correctModel)
-            UpdateModel(correctModel, isPrepared && (!snapToPizza || !isOnPizza));
+            UpdateModel(correctModel, isPrepared && (!snapToPizza || !isOnPizza), isOnPizza);
     }
 
-    private void UpdateModel(GameObject model, bool resetRigidBody = false)
+    private void UpdateModel(GameObject model, bool enableRigidBody = false, bool disableColliders = false)
     {
-        Destroy(CurrentModel);
+        int loop = 100 + modelParent.childCount;
+        while(modelParent.childCount > 0 && loop > 0)
+        {
+            int destructionCheck = modelParent.childCount;
+
+            Debug.Log("destroying: " + CurrentModel);
+            CurrentModel.SetActive(false);
+            Destroy(CurrentModel);
+
+            // Forces the destruction if the regular Destroy() decides that it doesn't want to work today
+            if(modelParent.childCount == destructionCheck)
+                DestroyImmediate(CurrentModel);
+
+            loop--;
+        }
 
         GameObject newModel = Instantiate(model);
         List<Collider> newColliders = newModel.GetComponentsInChildren<Collider>().ToList();
@@ -111,12 +125,20 @@ public class Ingredient : MonoBehaviour
         newModel.transform.localPosition = Vector3.zero;
         newModel.transform.localRotation = Quaternion.identity;
 
+        Debug.Log("new current model:" + modelParent.GetChild(0).gameObject);
+
         Rigidbody rb = newModel.GetComponentInParent<Rigidbody>();
 
-        if(rb != null && resetRigidBody)
+        if(rb != null && enableRigidBody)
         {
             rb.isKinematic = false;
             rb.useGravity = true;
+        }
+
+        else
+        {
+            rb.isKinematic = true;
+            rb.useGravity = false;
         }
 
         if(grabInteractable != null)
@@ -130,6 +152,13 @@ public class Ingredient : MonoBehaviour
                 catch
                 {
                     grabInteractable.colliders.Add(newColliders[i]);
+                }
+
+                Debug.Log("disable colliders: " + disableColliders);
+
+                if(disableColliders)
+                {
+                    newColliders[i].enabled = false;
                 }
             }
 
@@ -162,6 +191,8 @@ public class Ingredient : MonoBehaviour
                 }
 
                 gameObject.SetActive(false);
+                Destroy(gameObject);
+                DestroyImmediate(gameObject);
             }
 
             else
