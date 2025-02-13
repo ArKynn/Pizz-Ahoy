@@ -47,8 +47,13 @@ namespace Main_Assets.Scripts
 
             foreach (Ingredient ingredient in pizzaIngredients.Keys)
             {
-                if(!order.TryGetValue(ingredient, out int amount)) _errorsMade++;
-                if(amount != pizzaIngredients[ingredient]) _errorsMade+= math.abs(amount - pizzaIngredients[ingredient]);
+                if (!order.TryGetValue(ingredient, out int amount))
+                {
+                    _errorsMade++;
+                    continue;
+                }
+                
+                if(amount != pizzaIngredients[ingredient]) _errorsMade += math.abs(amount - pizzaIngredients[ingredient]);
             }
             
             if(pizzaDelivered.CookState == Pizza.State.Cooked)
@@ -60,7 +65,7 @@ namespace Main_Assets.Scripts
             }
             else
             {
-                _errorsMade++;
+                _errorsMade += 10;
             }
             
             return _errorsMade;
@@ -77,13 +82,11 @@ namespace Main_Assets.Scripts
                 Ingredient newIngredient = _availableIngredients[_rnd.Next(0, _availableIngredients.Count)];
                 int amount = newIngredient.SnapToPizza ? 1 : _rnd.Next(1, maxPerIngredientAmount);
 
-                if(!_order.ContainsKey(newIngredient))
-                    _order.Add(newIngredient, amount);
-                
-                else
+                if(!_order.TryAdd(newIngredient, amount))
                 {
                     _order[newIngredient] += amount;
                 }
+
                 if(newIngredient.SnapToPizza || !allowRepeatedIngredients) _availableIngredients.Remove(newIngredient);
             }
             

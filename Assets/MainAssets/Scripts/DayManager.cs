@@ -69,7 +69,7 @@ namespace Main_Assets.Scripts
             print("Opening store");
             
             day++;
-            newOrderTimer = 0;
+            newOrderTimer = delayBetweenNewOrders - 5;
             dayTimer = 0;
             _ordersGenerated = 0;
             
