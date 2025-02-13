@@ -236,7 +236,7 @@ public class Ingredient : MonoBehaviour
         if(tool == null) tool = collision.gameObject.GetComponentInParent<CookingTool>();
         if(tool == null) tool = collision.gameObject.GetComponentInChildren<CookingTool>();
 
-        if(tool != null && tool.ToolType == preparationTool)
+        if(tool != null && tool.ToolType == preparationTool && tool.IsBeingHeld)
         {
             AudioManager.PlayLocalSound(audioSource, preparedSound);
             Prepare();
