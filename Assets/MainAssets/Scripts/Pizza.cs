@@ -42,14 +42,27 @@ public class Pizza : MonoBehaviour
         snapHeight = sauceHeight + snapHeightIncrements;
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         Ingredient ingredientToAttach = other.gameObject.GetComponentInParent<Ingredient>();
-        if(ingredientToAttach != null && !ingredientToAttach.GetComponent<Dough>())
+
+        bool isMoving = false;
+        if(ingredientToAttach != null)
+            foreach(Rigidbody rb in ingredientToAttach.GetComponentsInChildren<Rigidbody>())
+            {
+                if(!ingredientToAttach.GetComponent<Dough>()) Debug.Log($"Ingredient {ingredientToAttach.name}'s rigidbody has velocity of {rb.linearVelocity.magnitude}");
+                if(rb.linearVelocity.magnitude > 0.05f)
+                {
+                    isMoving = true;
+                    break;
+                }
+            }
+
+        if(ingredientToAttach != null && !ingredientToAttach.GetComponent<Dough>() && !ingredientToAttach.IsOnPizza && !isMoving)
         {
             AddIngredient(ingredientToAttach);
         }
-    }
+    }*/
 
     private void OnTriggerStay(Collider other)
     {
@@ -60,14 +73,14 @@ public class Pizza : MonoBehaviour
             foreach(Rigidbody rb in ingredientToAttach.GetComponentsInChildren<Rigidbody>())
             {
                 if(!ingredientToAttach.GetComponent<Dough>()) Debug.Log($"Ingredient {ingredientToAttach.name}'s rigidbody has velocity of {rb.linearVelocity.magnitude}");
-                if(rb.linearVelocity.magnitude > 0.1f)
+                if(rb.linearVelocity.magnitude > 0.05f)
                 {
                     isMoving = true;
                     break;
                 }
             }
 
-        if(ingredientToAttach != null && !ingredientToAttach.GetComponent<Dough>() && !ingredientToAttach.IsOnPizza && !isMoving)
+        if(ingredientToAttach != null && !ingredientToAttach.GetComponent<Dough>() && !ingredientToAttach.IsOnPizza && (!isMoving || ingredientToAttach.SnapToPizza))
         {
             AddIngredient(ingredientToAttach);
         }

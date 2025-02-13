@@ -100,7 +100,7 @@ public class Ingredient : MonoBehaviour
             UpdateModel(correctModel, isPrepared && (!snapToPizza || !isOnPizza), isOnPizza);
     }
 
-    private void UpdateModel(GameObject model, bool resetRigidBody = false, bool disableColliders = false)
+    private void UpdateModel(GameObject model, bool enableRigidBody = false, bool disableColliders = false)
     {
         int loop = 100 + modelParent.childCount;
         while(modelParent.childCount > 0 && loop > 0)
@@ -108,6 +108,7 @@ public class Ingredient : MonoBehaviour
             int destructionCheck = modelParent.childCount;
 
             Debug.Log("destroying: " + CurrentModel);
+            CurrentModel.SetActive(false);
             Destroy(CurrentModel);
 
             // Forces the destruction if the regular Destroy() decides that it doesn't want to work today
@@ -128,10 +129,16 @@ public class Ingredient : MonoBehaviour
 
         Rigidbody rb = newModel.GetComponentInParent<Rigidbody>();
 
-        if(rb != null && resetRigidBody)
+        if(rb != null && enableRigidBody)
         {
             rb.isKinematic = false;
             rb.useGravity = true;
+        }
+
+        else
+        {
+            rb.isKinematic = true;
+            rb.useGravity = false;
         }
 
         if(grabInteractable != null)
