@@ -79,14 +79,15 @@ namespace Main_Assets.Scripts
         private void OpenStore()
         {
             _isStoreOpen = true;
-            //_uiManager.StartCoroutine(FadeOutUI());
+            _uiManager.StartCoroutine(_uiManager.DisplayNewDay(day, 2f));
+            dayTimer -= 2f;
         }
         private void CloseStore()
         {
             print("Closing store");
             
             _isStoreOpen = false;
-            //_uiManager.StartCoroutine(FadeInUI());
+            _uiManager.StartCoroutine(_uiManager.DisplayEndOfDay(day, 5f, 3f));
             if (isQuotaDay) _gameManager.QuotaCheck();
         }
     }

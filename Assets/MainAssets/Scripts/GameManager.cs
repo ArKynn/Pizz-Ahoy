@@ -16,6 +16,7 @@ namespace Main_Assets.Scripts
         public int profitSinceLastCheck {get; private set;}
         private OrderManager _orderManager;
         private DayManager _dayManager;
+        private UIManager _uiManager;
         private Unity.Mathematics.Random _rnd;
         private int _quotasReached;
         public int nextQuota {get; private set;}
@@ -25,6 +26,7 @@ namespace Main_Assets.Scripts
             _rnd = new Unity.Mathematics.Random( 0x6E624EB7u);
             _dayManager = FindFirstObjectByType<DayManager>();
             _orderManager = FindFirstObjectByType<OrderManager>();
+            _uiManager = FindFirstObjectByType<UIManager>();
             _quotasReached = 0;
             if(debugStartDay) StartGame();
         }
@@ -67,6 +69,7 @@ namespace Main_Assets.Scripts
         private void GenerateNextQuota()
         {
             nextQuota = Mathf.RoundToInt(quotaBaseline * ((1 + Mathf.Pow(_quotasReached, 2) / quotaIncreaseModifier) * _rnd.NextFloat(0.75f, 1.25f) * _rnd.NextFloat(0.9f, 1.1f)));
+            _uiManager.StartCoroutine(_uiManager.DisplayNewQuota(nextQuota, 3f));
             print($"Next quota is {nextQuota}");
         }
 

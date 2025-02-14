@@ -59,7 +59,7 @@ public class TutorialBook : UtilityTool
         interactors.Add((XRBaseInteractor)args.interactorObject);
 
         if(interactors.Count > 0)
-            uiManager.StartCoroutine(uiManager.FadeInUI(tutorialUI));
+            uiManager.StartCoroutine(uiManager.FadeInUI(tutorialUI, 2f));
     }
 
     private void DisableUI(SelectExitEventArgs args)
