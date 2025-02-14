@@ -13,7 +13,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI endDayProfitText;
     [SerializeField] private CanvasGroup newQuotaScreen;
     [SerializeField] private TextMeshProUGUI newQuotaText;
-    [SerializeField] private CanvasGroup paidQuotaScreen;
+    [SerializeField] private CanvasGroup payQuotaScreen;
+    [SerializeField] private TextMeshProUGUI payQuotaText;
     [SerializeField] private CanvasGroup loseScreen;
     [SerializeField] private CanvasGroup winScreen;
     [SerializeField] private AudioSource SFXAudioSource;
@@ -163,6 +164,11 @@ public class UIManager : MonoBehaviour
 
     public IEnumerator DisplayNewQuota(int newQuota, float endViewTimer)
     {
+        // Can't start while another screen is active
+        while(payQuotaScreen.alpha > 0)
+            yield return null;
+
+
         // Sets up the value of the next quota to start at 0 and rise until it reaches the right amount
         int incrementingValue = 0;
         newQuotaText.text = $"{incrementingValue} Gold";
@@ -192,5 +198,80 @@ public class UIManager : MonoBehaviour
         // Gives a timeframe to see the screen results before fading back out
         yield return new WaitForSeconds(endViewTimer);
         StartCoroutine(FadeOutUI(newQuotaScreen));
+    }
+    
+    public IEnumerator DisplayPayQuota(int rent, int balance, float endViewTimer)
+    {
+        // Sets up the text for fading in
+        CanvasGroup textCanvasGroup = payQuotaText.transform.parent.GetComponent<CanvasGroup>();
+        textCanvasGroup.alpha = 0f;
+        payQuotaText.text = $"Rent: {rent} \nBalance: {balance}";
+
+        // Fades in the screen
+        StartCoroutine(FadeInUI(payQuotaScreen));
+        while(payQuotaScreen.alpha < 1)
+            yield return null;
+        
+        yield return new WaitForSeconds(0.5f);
+
+        // Fades in the text
+        StartCoroutine(FadeInUI(textCanvasGroup, 3f));
+        while(textCanvasGroup.alpha < 1)
+            yield return null;
+        
+        int decreasingValue = 0;
+
+        // Starts decreasing the value until either the rent or the balance reaches 0
+        while(rent+decreasingValue > 0 && balance+decreasingValue > 0)
+        {
+            decreasingValue--;
+            payQuotaText.text = $"Rent: {rent+decreasingValue} \nBalance: {balance+decreasingValue}";
+
+            yield return new WaitForSeconds(0.1f);
+        }
+        
+
+        // Gives a timeframe to see the screen results before fading back out
+        yield return new WaitForSeconds(endViewTimer);
+        StartCoroutine(FadeOutUI(payQuotaScreen));
+
+        if(balance < rent)
+        {
+            StartCoroutine(FadeInUI(loseScreen));
+        }
+    }
+    
+    public IEnumerator DisplayWin(float endViewTimer)
+    {
+        // Fades in the screen
+        StartCoroutine(FadeInUI(winScreen));
+        while(winScreen.alpha < 1)
+            yield return null;
+        
+        yield return new WaitForSeconds(0.5f);
+
+       
+
+
+        // Gives a timeframe to see the screen results before fading back out
+        yield return new WaitForSeconds(endViewTimer);
+        LoadScene(0);
+    }
+    
+    public IEnumerator DisplayLoss(float endViewTimer)
+    {
+        // Fades in the screen
+        StartCoroutine(FadeInUI(loseScreen));
+        while(loseScreen.alpha < 1)
+            yield return null;
+        
+        yield return new WaitForSeconds(0.5f);
+
+       
+
+
+        // Gives a timeframe to see the screen results before fading back out
+        yield return new WaitForSeconds(endViewTimer);
+        LoadScene(0);
     }
 }

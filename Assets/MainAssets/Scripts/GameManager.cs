@@ -91,11 +91,13 @@ namespace Main_Assets.Scripts
         private void GameOver()
         {
             print("Game Over");
+            _uiManager.StartCoroutine(_uiManager.DisplayLoss(6f));
         }
 
         private void WinGame()
         {
             print("Win");
+            _uiManager.StartCoroutine(_uiManager.DisplayWin(6f));
         }
     }
 }
