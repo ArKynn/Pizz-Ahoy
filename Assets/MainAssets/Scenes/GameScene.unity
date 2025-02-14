@@ -293,8 +293,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Time to pay the rent!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
+  m_sharedMaterial: {fileID: -1627916746603931538, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -429,8 +429,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Day ?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
+  m_sharedMaterial: {fileID: -1627916746603931538, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2563,8 +2563,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Victory!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
+  m_sharedMaterial: {fileID: -1627916746603931538, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5929,8 +5929,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: You didn't reach the quota.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
+  m_sharedMaterial: {fileID: -1627916746603931538, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6971,8 +6971,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Next Quota:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
+  m_sharedMaterial: {fileID: -1627916746603931538, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10594,8 +10594,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Day ?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
+  m_sharedMaterial: {fileID: -1627916746603931538, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10822,8 +10822,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '? Gold'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
+  m_sharedMaterial: {fileID: -1627916746603931538, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13022,8 +13022,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Today''s Profit: ? Gold'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
+  m_sharedMaterial: {fileID: -1627916746603931538, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14584,8 +14584,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Day %\n\n% days until \nquota"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
+  m_sharedMaterial: {fileID: -1627916746603931538, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14609,8 +14609,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.05
-  m_fontSizeBase: 0.05
+  m_fontSize: 0.04
+  m_fontSizeBase: 0.04
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -22596,8 +22596,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: You made enough profit to start your own business!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
+  m_sharedMaterial: {fileID: -1627916746603931538, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -22854,6 +22854,26 @@ PrefabInstance:
     - target: {fileID: 2784113440857789171, guid: 9a23c263a72beb941a187be30fb7603d, type: 3}
       propertyPath: m_Name
       value: TutorialBook
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081665473611390093, guid: 9a23c263a72beb941a187be30fb7603d, type: 3}
+      propertyPath: m_fontSize
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081665473611390093, guid: 9a23c263a72beb941a187be30fb7603d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
+    - target: {fileID: 6081665473611390093, guid: 9a23c263a72beb941a187be30fb7603d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081665473611390093, guid: 9a23c263a72beb941a187be30fb7603d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1627916746603931538, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
+    - target: {fileID: 6081665473611390093, guid: 9a23c263a72beb941a187be30fb7603d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23371,8 +23391,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Game Over
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
+  m_sharedMaterial: {fileID: -1627916746603931538, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -25936,8 +25956,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Next Quota:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
+  m_sharedMaterial: {fileID: -1627916746603931538, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -26140,8 +26160,8 @@ MonoBehaviour:
 
     Balance: ? Gold'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
+  m_sharedMaterial: {fileID: -1627916746603931538, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -29695,8 +29715,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '% Gold'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
+  m_sharedMaterial: {fileID: -1627916746603931538, guid: fecaac419c2c6e946a421c314f01f69b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
