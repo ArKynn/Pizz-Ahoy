@@ -33,22 +33,19 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        
+        foreach(InputActionReference input in pauseInputs)
+        {
+            input.action.Enable();
+            input.action.performed += TogglePause;
+        }
         if(isMainMenu) return;
         loadingScreen.gameObject.SetActive(true);
         if(loadingScreen.alpha < 1f) loadingScreen.alpha = 1f;
         else StartCoroutine(FadeOutUI(loadingScreen));
     }
 
-    private void Update()
-    {
-        if(!isMainMenu)
-        foreach(InputActionReference input in pauseInputs)
-        {
-            TogglePause();
-        }
-    }
-
-    private void TogglePause()
+    private void TogglePause(InputAction.CallbackContext obj)
     {
         pauseMenu.transform.position = FindAnyObjectByType<XROrigin>().transform.position;
 
