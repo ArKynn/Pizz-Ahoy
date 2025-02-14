@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        if(loadingScreen) return;
+        if(isMainMenu) return;
         loadingScreen.gameObject.SetActive(true);
         if(loadingScreen.alpha < 1f) loadingScreen.alpha = 1f;
         else StartCoroutine(FadeOutUI(loadingScreen));
@@ -85,7 +85,7 @@ public class UIManager : MonoBehaviour
     public IEnumerator DisplayNewDay(int dayNum, float endViewTimer)
     {
         // Can't start while another screen is active
-        while(newQuotaScreen.alpha > 0)
+        while(payQuotaScreen.alpha > 0 || newQuotaScreen.alpha > 0)
             yield return null;
 
 
@@ -131,6 +131,10 @@ public class UIManager : MonoBehaviour
 
     public IEnumerator DisplayEndOfDay(int dayNum, float profit, float endViewTimer)
     {
+        // Can't start while another screen is active
+        while(payQuotaScreen.alpha > 0)
+            yield return null;
+
         // Sets up the value of the next quota to start at 0 and rise until it reaches the right amount
         int incrementingValue = 0;
         endDayText.text = $"Day {dayNum}";
@@ -236,23 +240,21 @@ public class UIManager : MonoBehaviour
         // Gives a timeframe to see the screen results before fading back out
         yield return new WaitForSeconds(endViewTimer);
         StartCoroutine(FadeOutUI(payQuotaScreen));
-
-        if(balance < rent)
-        {
-            StartCoroutine(FadeInUI(loseScreen));
-        }
     }
     
     public IEnumerator DisplayWin(float endViewTimer)
     {
+        // Can't start while another screen is active
+        while(payQuotaScreen.alpha > 0)
+            yield return null;
+
+
         // Fades in the screen
         StartCoroutine(FadeInUI(winScreen));
         while(winScreen.alpha < 1)
             yield return null;
         
         yield return new WaitForSeconds(0.5f);
-
-       
 
 
         // Gives a timeframe to see the screen results before fading back out
@@ -262,14 +264,17 @@ public class UIManager : MonoBehaviour
     
     public IEnumerator DisplayLoss(float endViewTimer)
     {
+        // Can't start while another screen is active
+        while(payQuotaScreen.alpha > 0)
+            yield return null;
+
+
         // Fades in the screen
         StartCoroutine(FadeInUI(loseScreen));
         while(loseScreen.alpha < 1)
             yield return null;
         
         yield return new WaitForSeconds(0.5f);
-
-       
 
 
         // Gives a timeframe to see the screen results before fading back out
