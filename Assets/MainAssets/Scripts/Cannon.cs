@@ -27,16 +27,13 @@ public class Cannon : MonoBehaviour
         {
             PizzaBox pizzaBox = socket.interactablesSelected[0].transform.GetComponent<PizzaBox>();
             
-            if(pizzaBox != null)
-            {
-                gameManager.DeliverPizza(pizzaBox.pizza, pizzaBox.order.order);
-                socket.enabled = false;
-                Destroy(pizzaBox.order.gameObject);
-                Destroy(pizzaBox.pizza.gameObject);
-                Destroy(pizzaBox.gameObject);
-                _explosionParticle.Play();
-                AudioManager.PlayLocalSound(_source, _clip);
-            }
+            gameManager.DeliverPizza(pizzaBox.pizza, pizzaBox.order.order);
+            socket.enabled = false;
+            Destroy(pizzaBox.order.gameObject);
+            Destroy(pizzaBox.pizza.gameObject);
+            Destroy(pizzaBox.gameObject);
+            _explosionParticle.Play();
+            AudioManager.PlayLocalSound(_source, _clip);
         }
         
         socket.enabled = true;
