@@ -24758,7 +24758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0a645aab88409cbadeac76518419ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugStartDay: 1
+  debugStartDay: 0
   quotaBaseline: 10
   quotaIncreaseModifier: 15
   errorPaymentReduction: 0.1
