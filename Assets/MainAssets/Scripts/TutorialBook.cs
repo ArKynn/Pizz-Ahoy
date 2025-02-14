@@ -8,6 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 public class TutorialBook : UtilityTool
 {
     [SerializeField] private CanvasGroup tutorialUI;
+    [SerializeField] private CanvasGroup firstSpawnTextUI;
     [SerializeField] private List<Sprite> tutorialImages;
     [SerializeField] private Image image;
     [SerializeField] private Button nextbutton;
@@ -59,7 +60,12 @@ public class TutorialBook : UtilityTool
         interactors.Add((XRBaseInteractor)args.interactorObject);
 
         if(interactors.Count > 0)
+        {
             uiManager.StartCoroutine(uiManager.FadeInUI(tutorialUI, 2f));
+
+            if(firstSpawnTextUI.alpha > 0f)
+                uiManager.StartCoroutine(uiManager.FadeOutUI(firstSpawnTextUI, 2f));
+        }
     }
 
     private void DisableUI(SelectExitEventArgs args)
