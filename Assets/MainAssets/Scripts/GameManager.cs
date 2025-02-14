@@ -19,6 +19,7 @@ namespace Main_Assets.Scripts
         private UIManager _uiManager;
         private Unity.Mathematics.Random _rnd;
         private int _quotasReached;
+        private bool gameStarted = false;
         public int nextQuota {get; private set;}
         
         private void Start()
@@ -33,10 +34,12 @@ namespace Main_Assets.Scripts
 
         public void StartGame()
         {
+            if(gameStarted) return;
             print("StartGame");
             GenerateNextQuota();
             _dayManager.StartNewDay();
             profitSinceLastCheck = 0;
+            gameStarted = true;
         }
         
         public void DeliverPizza(Pizza pizza, Dictionary<Ingredient, int> order)
