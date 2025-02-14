@@ -1,12 +1,16 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
+using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private bool isMainMenu;
     [SerializeField] private CanvasGroup loadingScreen;
+    [SerializeField] private CanvasGroup pauseMenu;
     [SerializeField] private CanvasGroup newDayScreen;
     [SerializeField] private TextMeshProUGUI newDayText;
     [SerializeField] private CanvasGroup endDayScreen;
@@ -25,6 +29,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private AudioClip paidQuotaSound;
     [SerializeField] private AudioClip loseSound;
     [SerializeField] private AudioClip winSound;
+    [SerializeField] private InputActionReference[] pauseInputs;
 
     private void Start()
     {
@@ -33,8 +38,36 @@ public class UIManager : MonoBehaviour
         if(loadingScreen.alpha < 1f) loadingScreen.alpha = 1f;
         else StartCoroutine(FadeOutUI(loadingScreen));
     }
+
+    private void Update()
+    {
+        if(!isMainMenu)
+        foreach(InputActionReference input in pauseInputs)
+        {
+            TogglePause();
+        }
+    }
+
+    private void TogglePause()
+    {
+        pauseMenu.transform.position = FindAnyObjectByType<XROrigin>().transform.position;
+
+        if(pauseMenu.alpha < 1f)
+        {
+            StartCoroutine(FadeInUI(pauseMenu));
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            StartCoroutine(FadeOutUI(pauseMenu));
+            Time.timeScale = 1f;
+        }
+    }
+
+
     public void LoadScene(int scene)
     {
+        Time.timeScale = 1f;
         StopAllCoroutines();
         StartCoroutine(StartSceneTransition(Mathf.Max(scene, 0)));
     }
