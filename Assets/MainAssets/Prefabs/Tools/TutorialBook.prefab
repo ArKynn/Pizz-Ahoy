@@ -584,6 +584,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9914f6f655f20104f8fcc3932e2c71b6, type: 3}
   - {fileID: 21300000, guid: bf4c8b990deac8440af5d8ab1ceed69f, type: 3}
   - {fileID: 21300000, guid: b501e5cadffa2e444ab4b05e33adc3ca, type: 3}
+  - {fileID: 21300000, guid: 262e0e66960db9f4ca1abfc84524d14f, type: 3}
+  - {fileID: 21300000, guid: ac53334e3ee8e974fba240d3f4d9ad7f, type: 3}
+  - {fileID: 21300000, guid: 5776f877104f5d447ac0f91ec21e848a, type: 3}
+  - {fileID: 21300000, guid: 903ad1e7f3aa8fb4c852c1ee17fbf2c8, type: 3}
+  - {fileID: 21300000, guid: 511e915fe41a79c419da31adfb6e2fc5, type: 3}
+  - {fileID: 21300000, guid: e2d60557360da4f4aa71b3f1c7233176, type: 3}
   image: {fileID: 5085915724403567325}
   nextbutton: {fileID: 5557765899402271031}
   prevbutton: {fileID: 6417253250957370574}
