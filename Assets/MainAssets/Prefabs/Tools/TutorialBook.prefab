@@ -590,6 +590,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 903ad1e7f3aa8fb4c852c1ee17fbf2c8, type: 3}
   - {fileID: 21300000, guid: 511e915fe41a79c419da31adfb6e2fc5, type: 3}
   - {fileID: 21300000, guid: e2d60557360da4f4aa71b3f1c7233176, type: 3}
+  - {fileID: 21300000, guid: 1b5d5dda45821db439f277c95b3db286, type: 3}
+  - {fileID: 21300000, guid: 806f48a37fe56934c96f0bcc89c6d64e, type: 3}
   image: {fileID: 5085915724403567325}
   nextbutton: {fileID: 5557765899402271031}
   prevbutton: {fileID: 6417253250957370574}
