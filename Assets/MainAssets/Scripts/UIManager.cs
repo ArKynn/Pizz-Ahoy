@@ -1,12 +1,14 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private bool isMainMenu;
     [SerializeField] private CanvasGroup loadingScreen;
+    [SerializeField] private CanvasGroup pauseMenu;
     [SerializeField] private CanvasGroup newDayScreen;
     [SerializeField] private TextMeshProUGUI newDayText;
     [SerializeField] private CanvasGroup endDayScreen;
@@ -26,6 +28,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private AudioClip loseSound;
     [SerializeField] private AudioClip winSound;
 
+    private PlayerInput playerInput;
+
     private void Start()
     {
         if(isMainMenu) return;
@@ -33,8 +37,33 @@ public class UIManager : MonoBehaviour
         if(loadingScreen.alpha < 1f) loadingScreen.alpha = 1f;
         else StartCoroutine(FadeOutUI(loadingScreen));
     }
+
+    private void Update()
+    {
+        if(!isMainMenu && playerInput.actions["Pause"].WasPressedThisFrame())
+        {
+            TogglePause();
+        }
+    }
+
+    private void TogglePause()
+    {
+        if(pauseMenu.alpha < 1f)
+        {
+            StartCoroutine(FadeInUI(pauseMenu));
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            StartCoroutine(FadeOutUI(pauseMenu));
+            Time.timeScale = 1f;
+        }
+    }
+
+
     public void LoadScene(int scene)
     {
+        Time.timeScale = 1f;
         StopAllCoroutines();
         StartCoroutine(StartSceneTransition(Mathf.Max(scene, 0)));
     }
