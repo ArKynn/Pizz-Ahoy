@@ -5,9 +5,12 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class Cannon : MonoBehaviour
 {
+    [SerializeField] private AudioClip _clip;
+    [SerializeField] private AudioSource _source;
     private ParticleSystem _explosionParticle;
     private GameManager gameManager;
     private XRSocketInteractor socket;
+    private AudioManager audioManager;
 
     private void Start()
     {
@@ -32,6 +35,7 @@ public class Cannon : MonoBehaviour
                 Destroy(pizzaBox.pizza.gameObject);
                 Destroy(pizzaBox.gameObject);
                 _explosionParticle.Play();
+                AudioManager.PlayLocalSound(_source, _clip);
             }
         }
         

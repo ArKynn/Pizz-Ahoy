@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] private bool isMainMenu;
     [SerializeField] private CanvasGroup loadingScreen;
     [SerializeField] private CanvasGroup newDayScreen;
     [SerializeField] private TextMeshProUGUI newDayText;
@@ -27,6 +28,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        if(loadingScreen) return;
         loadingScreen.gameObject.SetActive(true);
         if(loadingScreen.alpha < 1f) loadingScreen.alpha = 1f;
         else StartCoroutine(FadeOutUI(loadingScreen));
