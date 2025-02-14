@@ -76,6 +76,8 @@ namespace Main_Assets.Scripts
 
         public void QuotaCheck()
         {
+            _uiManager.StartCoroutine(_uiManager.DisplayPayQuota(profitSinceLastCheck, nextQuota, 3f));
+            
             if (profitSinceLastCheck < nextQuota)
             {
                 GameOver();
