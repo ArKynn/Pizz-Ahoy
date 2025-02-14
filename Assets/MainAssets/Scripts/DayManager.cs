@@ -68,8 +68,6 @@ namespace Main_Assets.Scripts
         {
             if(_isStoreOpen) return;
             
-            print("Opening store");
-            
             day++;
             newOrderTimer = delayBetweenNewOrders - 5;
             dayTimer = 0;
@@ -86,8 +84,6 @@ namespace Main_Assets.Scripts
         }
         private void CloseStore()
         {
-            print("Closing store");
-            
             _isStoreOpen = false;
             _uiManager.StartCoroutine(_uiManager.DisplayEndOfDay(day, 5f, 3f));
             if (isQuotaDay)

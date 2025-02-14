@@ -19,6 +19,7 @@ namespace Main_Assets.Scripts
         private UIManager _uiManager;
         private Unity.Mathematics.Random _rnd;
         private int _quotasReached;
+        private bool gameStarted = false;
         public int nextQuota {get; private set;}
         
         private void Start()
@@ -33,10 +34,11 @@ namespace Main_Assets.Scripts
 
         public void StartGame()
         {
-            print("StartGame");
+            if(gameStarted) return;
             GenerateNextQuota();
             _dayManager.StartNewDay();
             profitSinceLastCheck = 0;
+            gameStarted = true;
         }
         
         public void DeliverPizza(Pizza pizza, Dictionary<Ingredient, int> order)
@@ -70,7 +72,6 @@ namespace Main_Assets.Scripts
         {
             nextQuota = Mathf.RoundToInt(quotaBaseline * ((1 + Mathf.Pow(_quotasReached, 2) / quotaIncreaseModifier) * _rnd.NextFloat(0.75f, 1.25f) * _rnd.NextFloat(0.9f, 1.1f)));
             _uiManager.StartCoroutine(_uiManager.DisplayNewQuota(nextQuota, 3f));
-            print($"Next quota is {nextQuota}");
         }
 
         public void QuotaCheck()
@@ -90,13 +91,11 @@ namespace Main_Assets.Scripts
 
         private void GameOver()
         {
-            print("Game Over");
             _uiManager.StartCoroutine(_uiManager.DisplayLoss(6f));
         }
 
         private void WinGame()
         {
-            print("Win");
             _uiManager.StartCoroutine(_uiManager.DisplayWin(6f));
         }
     }
