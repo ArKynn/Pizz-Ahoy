@@ -107,7 +107,6 @@ public class Ingredient : MonoBehaviour
         {
             int destructionCheck = modelParent.childCount;
 
-            Debug.Log("destroying: " + CurrentModel);
             CurrentModel.SetActive(false);
             Destroy(CurrentModel);
 
@@ -124,8 +123,6 @@ public class Ingredient : MonoBehaviour
         newModel.transform.parent = modelParent;
         newModel.transform.localPosition = Vector3.zero;
         newModel.transform.localRotation = Quaternion.identity;
-
-        Debug.Log("new current model:" + modelParent.GetChild(0).gameObject);
 
         Rigidbody rb = newModel.GetComponentInParent<Rigidbody>();
 
@@ -153,8 +150,6 @@ public class Ingredient : MonoBehaviour
                 {
                     grabInteractable.colliders.Add(newColliders[i]);
                 }
-
-                Debug.Log("disable colliders: " + disableColliders);
 
                 if(disableColliders)
                 {

@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 5308051025733923761}
   - component: {fileID: 3759347238191092419}
   m_Layer: 0
-  m_Name: SauceBottleSpicy
+  m_Name: SauceBottleBBQ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,6 +65,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6556693995435911575}
   - {fileID: 8890444717746227640}
   - {fileID: 4717468457294131695}
   m_Father: {fileID: 0}
@@ -180,9 +181,9 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 6556693995435911575}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -303,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30c7a4fb39e29824a9dd9df73749a99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saucePrefab: {fileID: 6501379539974483939, guid: 1ce86bbd2c0d78946928dc78da19f917, type: 3}
+  saucePrefab: {fileID: 6501379539974483939, guid: 9f31791c7be072a4683b59d27fa0c7eb, type: 3}
 --- !u!198 &3392077630166429567
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -494,7 +495,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.40784314, b: 0.16470589, a: 1}
+      maxColor: {r: 0.65882355, g: 0.32156864, b: 0.14901961, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5104,6 +5105,37 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &8061073431099678507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6556693995435911575}
+  m_Layer: 0
+  m_Name: GrabPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6556693995435911575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8061073431099678507}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6784988211524947456}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7776551630006756116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5115,6 +5147,10 @@ PrefabInstance:
     - target: {fileID: 2641803198792526429, guid: 87e935960d5767f4280217dcb6959c85, type: 3}
       propertyPath: m_Name
       value: Ketchup Plastic Bottle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2641803198792526429, guid: 87e935960d5767f4280217dcb6959c85, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3450393586929283303, guid: 87e935960d5767f4280217dcb6959c85, type: 3}
       propertyPath: m_LocalScale.x
@@ -5171,7 +5207,7 @@ PrefabInstance:
     - target: {fileID: 4587319136059345800, guid: 87e935960d5767f4280217dcb6959c85, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: bf4a76b4e3e325343a413dfc85668ba4, type: 2}
+      objectReference: {fileID: 2100000, guid: 73e9dcbb7832179429a9fddb3e81396a, type: 2}
     m_RemovedComponents:
     - {fileID: 9088799791201251806, guid: 87e935960d5767f4280217dcb6959c85, type: 3}
     - {fileID: 8911010298675303727, guid: 87e935960d5767f4280217dcb6959c85, type: 3}
