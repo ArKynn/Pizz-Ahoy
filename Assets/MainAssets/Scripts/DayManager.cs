@@ -50,6 +50,7 @@ namespace Main_Assets.Scripts
             _orderManager = FindFirstObjectByType<OrderManager>();
             _gameManager = FindFirstObjectByType<GameManager>();
             _uiManager = FindFirstObjectByType<UIManager>();
+            nextQuotaDay = daysBetweenQuotas;
         }
         private void Update()
         {

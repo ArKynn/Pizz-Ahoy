@@ -18,7 +18,7 @@ public class CalendaryText : MonoBehaviour
     {
         if (_dayManager.day != _day)
         {
-            _text.text = $"Day {(_day = _dayManager.day).ToString()}\n {_dayManager.nextQuotaDay - _day} days until quota";
+            _text.text = $"Day {(_day = _dayManager.day).ToString()}\n {_dayManager.nextQuotaDay - _day} days until\nquota";
         }
     }
 }
