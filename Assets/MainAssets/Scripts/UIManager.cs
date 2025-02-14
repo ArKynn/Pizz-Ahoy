@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -27,8 +29,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private AudioClip paidQuotaSound;
     [SerializeField] private AudioClip loseSound;
     [SerializeField] private AudioClip winSound;
-
-    private PlayerInput playerInput;
+    [SerializeField] private InputActionReference[] pauseInputs;
 
     private void Start()
     {
@@ -40,7 +41,8 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if(!isMainMenu && playerInput.actions["Pause"].WasPressedThisFrame())
+        if(!isMainMenu)
+        foreach(InputActionReference input in pauseInputs)
         {
             TogglePause();
         }
@@ -48,6 +50,8 @@ public class UIManager : MonoBehaviour
 
     private void TogglePause()
     {
+        pauseMenu.transform.position = FindAnyObjectByType<XROrigin>().transform.position;
+
         if(pauseMenu.alpha < 1f)
         {
             StartCoroutine(FadeInUI(pauseMenu));
