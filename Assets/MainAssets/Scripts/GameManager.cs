@@ -35,7 +35,6 @@ namespace Main_Assets.Scripts
         public void StartGame()
         {
             if(gameStarted) return;
-            print("StartGame");
             GenerateNextQuota();
             _dayManager.StartNewDay();
             profitSinceLastCheck = 0;
@@ -73,7 +72,6 @@ namespace Main_Assets.Scripts
         {
             nextQuota = Mathf.RoundToInt(quotaBaseline * ((1 + Mathf.Pow(_quotasReached, 2) / quotaIncreaseModifier) * _rnd.NextFloat(0.75f, 1.25f) * _rnd.NextFloat(0.9f, 1.1f)));
             _uiManager.StartCoroutine(_uiManager.DisplayNewQuota(nextQuota, 3f));
-            print($"Next quota is {nextQuota}");
         }
 
         public void QuotaCheck()
@@ -93,13 +91,11 @@ namespace Main_Assets.Scripts
 
         private void GameOver()
         {
-            print("Game Over");
             _uiManager.StartCoroutine(_uiManager.DisplayLoss(6f));
         }
 
         private void WinGame()
         {
-            print("Win");
             _uiManager.StartCoroutine(_uiManager.DisplayWin(6f));
         }
     }
