@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7702519055611280871}
   - component: {fileID: 506041297771754297}
   - component: {fileID: 6860714956507751907}
+  - component: {fileID: -8435100387975648984}
   m_Layer: 0
   m_Name: RawPrepdPepperModel
   m_TagString: Untagged
@@ -87,6 +88,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-8435100387975648984
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7566877853337503687}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4500512173872332228, guid: 222601f744058524a9b045c51c2d24ff, type: 3}
 --- !u!1 &8889625262086536524
 GameObject:
   m_ObjectHideFlags: 0

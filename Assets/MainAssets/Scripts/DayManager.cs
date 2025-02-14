@@ -15,6 +15,7 @@ namespace Main_Assets.Scripts
         private bool _isStoreOpen;
         private bool isQuotaDay => day % daysBetweenQuotas == 0;
         public int day {get; private set;}
+        public int nextQuotaDay {get; private set;}
         private int _ordersGenerated;
 
         private float dayTimer
@@ -49,6 +50,7 @@ namespace Main_Assets.Scripts
             _orderManager = FindFirstObjectByType<OrderManager>();
             _gameManager = FindFirstObjectByType<GameManager>();
             _uiManager = FindFirstObjectByType<UIManager>();
+            nextQuotaDay = daysBetweenQuotas;
         }
         private void Update()
         {
@@ -88,7 +90,16 @@ namespace Main_Assets.Scripts
             
             _isStoreOpen = false;
             _uiManager.StartCoroutine(_uiManager.DisplayEndOfDay(day, 5f, 3f));
-            if (isQuotaDay) _gameManager.QuotaCheck();
+            if (isQuotaDay)
+            {
+                _gameManager.QuotaCheck();
+                UpdateQuotaDay();
+            }
+        }
+
+        private void UpdateQuotaDay()
+        {
+            nextQuotaDay = day + daysBetweenQuotas;
         }
     }
 }

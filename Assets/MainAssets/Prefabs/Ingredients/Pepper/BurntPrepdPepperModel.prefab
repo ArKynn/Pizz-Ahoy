@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 132940605762982293}
   - component: {fileID: 2751001004826814124}
   - component: {fileID: 7353305860470666005}
+  - component: {fileID: -3589931407990083733}
   m_Layer: 0
   m_Name: BurntPrepdPepperModel
   m_TagString: Untagged
@@ -169,3 +170,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-3589931407990083733
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6640147701291256070}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4500512173872332228, guid: 222601f744058524a9b045c51c2d24ff, type: 3}

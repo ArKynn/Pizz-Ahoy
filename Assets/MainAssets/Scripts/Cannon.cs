@@ -5,11 +5,13 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class Cannon : MonoBehaviour
 {
+    private ParticleSystem _explosionParticle;
     private GameManager gameManager;
     private XRSocketInteractor socket;
 
     private void Start()
     {
+        _explosionParticle = GetComponent<ParticleSystem>();
         gameManager = FindAnyObjectByType<GameManager>();
         socket = GetComponentInChildren<XRSocketInteractor>();
 
@@ -26,9 +28,10 @@ public class Cannon : MonoBehaviour
             {
                 gameManager.DeliverPizza(pizzaBox.pizza, pizzaBox.order.order);
                 socket.enabled = false;
-                Destroy(pizzaBox.order);
-                Destroy(pizzaBox.pizza);
+                Destroy(pizzaBox.order.gameObject);
+                Destroy(pizzaBox.pizza.gameObject);
                 Destroy(pizzaBox.gameObject);
+                _explosionParticle.Play();
             }
         }
         
